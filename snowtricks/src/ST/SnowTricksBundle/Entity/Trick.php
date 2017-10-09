@@ -3,11 +3,15 @@
 namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use ST\SnowTricksBundle\Entity\Picture;
+use ST\SnowTricksBundle\Entity\Video;
+use ST\UserBundle\Entity\User;
 
 /**
  * Trick
  *
- * @ORM\Table(name="trick")
+ * @ORM\Table(name="st_trick")
  * @ORM\Entity(repositoryClass="ST\SnowTricksBundle\Repository\TrickRepository")
  */
 class Trick
@@ -45,28 +49,28 @@ class Trick
     /**
      * @var array
      *
-     * @ORM\Column(name="pictures", type="array")
+     * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Picture", cascade={"persist", "remove"}, mappedBy="trick")
      */
     private $pictures;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="videos", type="array")
+     * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Video", cascade={"persist", "remove"}, mappedBy="trick")
      */
     private $videos;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ST\UserBundle\Entity\User", cascade={"persist"})
      */
     private $author;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="family", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Family", cascade={"persist"}, inversedBy="tricks")
      */
     private $family;
 
@@ -168,61 +172,13 @@ class Trick
     }
 
     /**
-     * Set pictures
-     *
-     * @param array $pictures
-     *
-     * @return Trick
-     */
-    public function setPictures($pictures)
-    {
-        $this->pictures = $pictures;
-
-        return $this;
-    }
-
-    /**
-     * Get pictures
-     *
-     * @return array
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-
-    /**
-     * Set videos
-     *
-     * @param array $videos
-     *
-     * @return Trick
-     */
-    public function setVideos($videos)
-    {
-        $this->videos = $videos;
-
-        return $this;
-    }
-
-    /**
-     * Get videos
-     *
-     * @return array
-     */
-    public function getVideos()
-    {
-        return $this->videos;
-    }
-
-    /**
      * Set author
      *
-     * @param string $author
+     * @param User $author
      *
      * @return Trick
      */
-    public function setAuthor($author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
 
@@ -232,7 +188,7 @@ class Trick
     /**
      * Get author
      *
-     * @return string
+     * @return User
      */
     public function getAuthor()
     {
@@ -310,5 +266,81 @@ class Trick
     {
         return $this->dateUpdate;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dateInsert = new \DateTime();
+        $this->pictures = new ArrayCollection();
+        $this->videos = new ArrayCollection();
+    }
 
+    /**
+     * Add picture
+     *
+     * @param Picture $picture
+     *
+     * @return Trick
+     */
+    public function addPicture(Picture $picture)
+    {
+        $this->pictures[] = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Remove picture
+     *
+     * @param Picture $picture
+     */
+    public function removePicture(Picture $picture)
+    {
+        $this->pictures->removeElement($picture);
+    }
+
+    /**
+     * Add video
+     *
+     * @param Video $video
+     *
+     * @return Trick
+     */
+    public function addVideo(Video $video)
+    {
+        $this->videos[] = $video;
+
+        return $this;
+    }
+
+    /**
+     * Remove video
+     *
+     * @param Video $video
+     */
+    public function removeVideo(Video $video)
+    {
+        $this->videos->removeElement($video);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * Get videos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVideos()
+    {
+        return $this->videos;
+    }
+}
