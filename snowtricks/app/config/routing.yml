@@ -1,3 +1,9 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+st_core:
+    resource: "@STCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+st_snow_tricks:
+    resource: "@STSnowTricksBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
