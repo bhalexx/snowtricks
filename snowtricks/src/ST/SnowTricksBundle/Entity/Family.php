@@ -3,6 +3,8 @@
 namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use ST\SnowTricksBundle\Entity\Trick;
 
 /**
  * Family
@@ -45,7 +47,7 @@ class Family
     /**
      * @var array
      *
-     * @ORM\Column(name="tricks", type="array")
+     * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Trick", cascade={"persist", "remove"}, mappedBy="family")
      */
     private $tricks;
 
@@ -133,17 +135,11 @@ class Family
     }
 
     /**
-     * Set tricks
-     *
-     * @param array $tricks
-     *
-     * @return Family
+     * Constructor
      */
-    public function setTricks($tricks)
+    public function __construct()
     {
-        $this->tricks = $tricks;
-
-        return $this;
+        $this->tricks = new ArrayCollection();
     }
 
     /**
@@ -155,5 +151,28 @@ class Family
     {
         return $this->tricks;
     }
-}
 
+    /**
+     * Add trick
+     *
+     * @param Trick $trick
+     *
+     * @return Family
+     */
+    public function addTrick(Trick $trick)
+    {
+        $this->tricks[] = $trick;
+
+        return $this;
+    }
+
+    /**
+     * Remove trick
+     *
+     * @param Trick $trick
+     */
+    public function removeTrick(Trick $trick)
+    {
+        $this->tricks->removeElement($trick);
+    }
+}
