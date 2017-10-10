@@ -1,0 +1,24 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Connexion 
+{% endblock %}
+
+{# According to our layout #}
+{% block body %}
+
+  {# Bundle flash messages #}
+  {% for key, messages in app.session.flashbag.all() %}
+    {% for message in messages %}
+      <div class="alert alert-{{ key }}">
+        {{ message|trans({}, 'FOSUserBundle') }}
+      </div>
+    {% endfor %}
+  {% endfor %}
+  <div class="form-wrapper">
+    {# Bundle templates #}
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+  </div>
+
+{% endblock %}

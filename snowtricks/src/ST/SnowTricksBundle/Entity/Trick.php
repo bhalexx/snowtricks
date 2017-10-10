@@ -84,7 +84,7 @@ class Trick
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdate", type="datetime")
+     * @ORM\Column(name="dateUpdate", type="datetime", nullable=true)
      */
     private $dateUpdate;
 

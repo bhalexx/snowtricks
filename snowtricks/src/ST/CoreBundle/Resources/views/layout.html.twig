@@ -9,6 +9,24 @@
 	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+					    <h1>SnowTricks</h1> 
+					    <p>
+					    	Bienvenue sur le site communautaire pour les inconditionnels de snowboard !
+					    </p>
+					    <ul class="list-inline">
+					    	<li>
+					    		<a href="{{ path('fos_user_security_login') }}">Se connecter</a>
+					    		<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+					    	</li>
+					    </ul>
+				 	</div>
+					{% block body %}{% endblock %}
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

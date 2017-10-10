@@ -1,0 +1,92 @@
+Families:
+    Family1:
+        name: "Grabs"
+        slug: "grabs"
+        description: "Un grab consiste à attraper la planche avec la main pendant le saut. Le verbe anglais to grab signifie « attraper. »"
+        tricks:
+            Trick1:
+                name: "Mute"
+                slug: "mute"
+                description: "Saisie de la carre frontside de la planche entre les deux pieds avec la main avant"
+            
+            Trick2:
+                name: "Sad"
+                slug: "sad"
+                description: "Aussi appelée melancholie ou style week : saisie de la carre backside de la planche, entre les deux pieds, avec la main avant"
+            
+            Trick3:
+                name: "Indie"
+                slug: "indie"
+                description: "Saisie de la carre frontside de la planche, entre les deux pieds, avec la main arrière"
+            
+            Trick4:
+                name: "Stalefish"
+                slug: "stalefish"
+                description: "Saisie de la carre backside de la planche entre les deux pieds avec la main arrière"
+            
+            Trick5:
+                name: "Tail Grab"
+                slug: "tail-grab"
+                description: "Saisie de la partie arrière de la planche, avec la main arrière"
+            
+            Trick6:
+                name: "Nose Grab"
+                slug: "nose-grab"
+                description: "Saisie de la partie avant de la planche, avec la main avant"
+            
+            Trick7:
+                name: "Japan"
+                slug: "japan"
+                description: "Aussi appelée Japan Air, saisie de l'avant de la planche, avec la main avant, du côté de la carre frontside"
+            
+            Trick8:
+                name: "Seat Belt"
+                slug: "seat-belt"
+                description: "Saisie du carre frontside à l'arrière avec la main avant"
+                
+            Trick9:
+                name: "Truck Driver"
+                slug: "truck-driver"
+                description: "Saisie du carre avant et carre arrière avec chaque main (comme tenir un volant de voiture)"
+    
+    Family2:
+        name: "Rotations"
+        slug: "rotations"
+        description: "On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d'effectuer une rotation horizontale pendant le saut, puis d'attérir en position switch ou normal."
+        tricks:
+            Trick1:
+                name: "180"
+                slug: "180"
+                description: "Désigne un demi-tour, soit 180 degrés d'angle"
+            
+            Trick2:
+                name: "360"
+                slug: "360"
+                description: "trois six pour un tour complet"
+            
+            Trick3:
+                name: "540"
+                slug: "540"
+                description: "cinq quatre pour un tour et demi"
+
+            Trick4:
+                name: "720"
+                slug: "720"
+                description: "sept deux pour deux tours complets"
+
+            Trick5:
+                name: "900"
+                slug: "900"
+                description: "pour deux tours et demi"
+
+            Trick6:
+                name: "1080"
+                slug: "1080"
+                description: "Aussi appelé big foot. Pour trois tours"
+
+    # Family3:
+    #     name: "Flips"
+    #     slug: "flips"
+    #     description: "Un flip est une rotation verticale. On distingue les front flips, rotations en avant, et les back flips, rotations en arrière."
+    #     tricks:
+
