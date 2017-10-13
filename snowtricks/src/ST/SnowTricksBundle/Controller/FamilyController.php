@@ -38,7 +38,7 @@ class FamilyController extends Controller
             $em->persist($family);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'La famille a bien été créée !');
+            $request->getSession()->getFlashBag()->add('success', 'Le groupe a bien été créé !');
 
             return $this->redirectToRoute('st_snowtricks.family_view', array('id' => $family->getId(), 'slug' => $family->getSlug()));
         }
@@ -58,7 +58,7 @@ class FamilyController extends Controller
 
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'La famille a bien été modification !');
+            $request->getSession()->getFlashBag()->add('success', 'Le groupe a bien été modifié !');
 
             return $this->redirectToRoute('st_snowtricks.family_view', array('id' => $family->getId(), 'slug' => $family->getSlug()));
         }
