@@ -113,7 +113,7 @@
 			foreach($users['Users'] as $userData) {
 				$user = new User();
 				$user->setUsername($userData['username']);
-				$user->setPassword($userData['password']);
+				$user->setPlainPassword($userData['password']);
 				$user->setEmail($userData['email']);
 				$user->setEnabled(true);
 				

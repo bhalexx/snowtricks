@@ -1,0 +1,46 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Familles
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>
+				Liste des familles
+			</h2>
+			<a href="{{ path('st_snowtricks.family_add') }}">Ajouter une famille</a>
+			<table class="table table-responsive">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Nombre de figures</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for family in families %}
+						<tr>
+							<td>{{ family.name }}</td>
+							<td>{{ family.tricks|length }}</td>
+							<td>
+								<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}" class="btn btn-primary">
+									Voir
+								</a>
+								{% if is_granted('ROLE_MEMBER') %}
+									<a href="{{ path('st_snowtricks.family_edit', { id: family.id, slug: family.slug }) }}" class="btn btn-warning">
+										Modifier
+									</a>
+									<a href="{{ path('st_snowtricks.family_delete', { id: family.id, slug: family.slug }) }}" class="btn btn-danger">
+										Supprimer
+									</a>
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

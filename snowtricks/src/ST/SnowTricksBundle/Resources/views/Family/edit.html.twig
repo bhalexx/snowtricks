@@ -1,0 +1,10 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Modifier {{ family.name }}
+{% endblock %}
+
+{% block body %}
+	<h2>Modifier {{ family.name }}</h2>
+	{{ include("STSnowTricksBundle:Family:form.html.twig") }}
+{% endblock %}

@@ -1,3 +1,29 @@
-st_snow_tricks_homepage:
+st_snowtricks.homepage:
     path:     /
     defaults: { _controller: STSnowTricksBundle:Family:index }
+
+st_snowtricks.family_view:
+    path: /familles/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Family:view }
+    requirements:
+      id: \d+
+
+st_snowtricks.family_add:
+    path: /familles/ajouter
+    defaults: { _controller: STSnowTricksBundle:Family:add }
+
+st_snowtricks.family_edit:
+    path: /familles/modifier/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Family:edit }
+    requirements:
+      id: \d+
+
+st_snowtricks.family_delete:
+    path: /familles/supprimer/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Family:delete }
+    requirements:
+      id: \d+
+
+st_snowtricks.family_list:
+    path: /familles
+    defaults: { _controller: STSnowTricksBundle:Family:list }

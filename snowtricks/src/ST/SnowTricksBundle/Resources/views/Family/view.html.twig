@@ -1,0 +1,28 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} {{ family.name }}
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>
+				{{ family.name }} <small>{{ family.tricks|length }} figures</small>
+			</h2>
+			<p>
+				{{ family.description }}
+			</p>
+			{% for trick in family.tricks %}
+				<div class="card col-lg-3">
+					<div class="card-header">
+						<b>{{ trick.name }}</b>
+					</div>
+					<div class="card-body">
+						{{ trick.description }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

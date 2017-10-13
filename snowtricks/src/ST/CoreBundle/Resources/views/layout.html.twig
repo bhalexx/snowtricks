@@ -5,28 +5,94 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	    {% block stylesheet %}
+	    	<link rel="stylesheet" href="{{ asset('build/global.css') }}">
+	    {% endblock %}
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="jumbotron">
-					    <h1>SnowTricks</h1> 
-					    <p>
-					    	Bienvenue sur le site communautaire pour les inconditionnels de snowboard !
-					    </p>
-					    <ul class="list-inline">
-					    	<li>
-					    		<a href="{{ path('fos_user_security_login') }}">Se connecter</a>
-					    		<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
-					    	</li>
-					    </ul>
-				 	</div>
-					{% block body %}{% endblock %}
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+		    <div class="container">
+		        <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{{ path('st_snowtricks.homepage') }}">SnowTricks</a>
+				</div>
+		        <div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						{% if not app.user %}
+							<li>
+								<a href="{{ path('fos_user_security_login') }}">
+									Connexion
+								</a>
+							</li>
+						{% else %}
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									{{ app.user.username }} <span class="caret"></span>										
+								</a>
+					            <ul class="dropdown-menu">
+					            	<li><a href="#">Modifier mon profil</a></li>
+					                <li><a href="#">Déconnexion</a></li>
+				              	</ul>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+		    </div>
+		</nav>
+
+		{% for type, messages in app.session.flashbag.all %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type ? type : '' }} alert-dismissible" role="alert">
+                	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>
+                    	{{ message }}
+                    </p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+		{% if not app.user %}
+			<div class="container-fluid anonymous">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 text-center">
+							<p>
+								{% block registerGrip %}{% endblock %}
+							</p>
+							<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">
+								Inscription
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		<div class="container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						{% if is_granted('ROLE_MEMBER') %}
+							<a href="#" class="btn btn-primary">Ajouter une figure</a>
+							<a href="{{ path('st_snowtricks.family_add') }}" class="btn btn-primary">Ajouter une famille</a>
+						{% endif %}
+						<div class="row">
+							{% block body %}{% endblock %}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+
+		{% block javascript %}
+			<script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+		{% endblock %}
 	</body>
 </html>

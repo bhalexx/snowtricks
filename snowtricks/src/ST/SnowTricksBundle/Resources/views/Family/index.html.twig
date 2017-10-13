@@ -4,6 +4,36 @@
   {{ parent() }} Accueil
 {% endblock %}
 
+{% block registerGrip %}
+	Bienvenue sur le site communautaire pour les inconditionnels de snowboard !<br/>
+	Connectez-vous pour prendre part à cette belle communauté ou inscrivez-vous si ce n'est pas déjà fait !
+{% endblock %}
+
 {% block body %}
-	Familles
+	{% for family in families %}
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>
+					{{ family.name }}
+					{% if is_granted('ROLE_MEMBER') %}
+						<a href="{{ path('st_snowtricks.family_edit', { id: family.id, slug: family.slug }) }}">Modifier</a>
+						<a href="{{ path('st_snowtricks.family_delete', { id: family.id, slug: family.slug }) }}">Supprimer</a>
+					{% endif %}
+				</h2>
+				<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">Voir tout</a>
+			</div>
+			{% for trick in family.tricks|shuffle|slice(0,4) %}
+				<div class="card col-lg-3">
+					<div class="card-header">
+						<b>{{ trick.name }}</b>
+					</div>
+					<div class="card-body">
+						{{ trick.description }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>		
+	{% else %}
+		Aucune famille n'existe
+	{% endfor %}
 {% endblock %}
