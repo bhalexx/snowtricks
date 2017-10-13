@@ -10,6 +10,10 @@
 {% endblock %}
 
 {% block body %}
+	{% if is_granted('ROLE_MEMBER') %}
+		<a href="#" class="btn btn-primary">Ajouter une figure</a>
+	{% endif %}
+
 	{% for family in families %}
 		<div class="row">
 			<div class="col-xs-12">
@@ -34,6 +38,6 @@
 			{% endfor %}
 		</div>		
 	{% else %}
-		Aucune famille n'existe
+		Aucun groupe n'existe encore. Connectez-vous pour en créer un !
 	{% endfor %}
 {% endblock %}
