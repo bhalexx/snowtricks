@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 use ST\SnowTricksBundle\Entity\Trick;
 
 /**
@@ -33,6 +34,7 @@ class Family
     /**
      * @var string
      *
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
     private $slug;

@@ -1,0 +1,10 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Ajouter une famille
+{% endblock %}
+
+{% block body %}
+	<h2>Ajouter une famille</h2>
+	{{ include("STSnowTricksBundle:Family:form.html.twig") }}
+{% endblock %}
