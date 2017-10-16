@@ -30,9 +30,10 @@ class Video
     private $path;
 
     /**
-     * @var string
+     * @var Trick
      *
      * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Trick", inversedBy="videos")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $trick;
 

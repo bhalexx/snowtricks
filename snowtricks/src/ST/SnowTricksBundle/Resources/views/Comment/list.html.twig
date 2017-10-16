@@ -1,0 +1,12 @@
+<h3>Commentaires</h3>
+{% for comment in trick.comments %}
+	<div class="comment">
+		<b>{{ comment.author }}</b>
+		<span class="text-muted">
+			({{ comment.dateInsert|date('d/m/Y, H:i', 'Europe/Paris') }})
+		</span>
+		<p>{{ comment.content }}</p>
+	</div>
+{% else %}
+	<p class="text-center">Aucun commentaire n'a encore été publié. N'hésitez pas à lancer le mouvement :)</p>
+{% endfor %}

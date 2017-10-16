@@ -1,0 +1,31 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Supprimer la figure {{ trick.name }}
+{% endblock %}
+
+{% block body %}
+    {% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        (trick.family.name) : path('st_snowtricks.family_view', { id: trick.family.id, slug: trick.family.slug }),
+        (trick.name) : path('st_snowtricks.trick_view', { id: trick.id, slug: trick.slug }),
+        ('Supprimer') : path('st_snowtricks.trick_delete', { id : trick.id, slug : trick.slug })
+    }} %}
+
+	<h2>Supprimer la figure {{ trick.name }}</h2>
+	<p>
+		Attention, cette action est irréversible et entraîne la suppression de toutes les images et vidéos associées à cette figure.
+	</p>
+
+	<form action="{{ path('st_snowtricks.trick_delete', { 'id': trick.id, slug: trick.slug }) }}" method="post">
+        <a href="{{ path('st_snowtricks.trick_view', { 'id': trick.id, 'slug': trick.slug }) }}" class="btn btn-default">
+            <span>ANNULER</span>
+        </a>
+        <button type="submit" class="btn btn-danger">
+            <span>SUPPRIMER</span>
+        </button>
+        {# Generates CSRF token #}
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

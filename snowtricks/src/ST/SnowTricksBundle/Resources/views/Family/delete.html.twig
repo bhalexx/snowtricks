@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block body %}
+    {% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        (family.name) : path('st_snowtricks.family_view', { id: family.id, slug: family.slug }),
+        ('Supprimer') : path('st_snowtricks.family_delete', { id : family.id, slug : family.slug })
+    }} %}
+
 	<h2>Supprimer le groupe {{ family.name }}</h2>
 	<p>
 		Attention, cette action est irréversible et entraîne la suppression de toutes les figures associées à ce groupe.

@@ -27,3 +27,36 @@ st_snowtricks.family_delete:
 st_snowtricks.family_list:
     path: /groupes
     defaults: { _controller: STSnowTricksBundle:Family:list }
+
+st_snowtricks.trick_view:
+    path: /figure/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Trick:view }
+    requirements:
+      id: \d+
+
+st_snowtricks.trick_add:
+    path: /figures/ajouter
+    defaults: { _controller: STSnowTricksBundle:Trick:add }
+
+st_snowtricks.trick_add_in:
+    path: /groupes/{family}/figures/ajouter
+    defaults: { _controller: STSnowTricksBundle:Trick:add }
+
+st_snowtricks.trick_edit:
+    path: /figures/modifier/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Trick:edit }
+    requirements:
+      id: \d+
+
+st_snowtricks.trick_delete:
+    path: /figures/supprimer/{id}/{slug}
+    defaults: { _controller: STSnowTricksBundle:Trick:delete }
+    requirements:
+      id: \d+
+
+st_snowtricks.trick_remove_picture:
+    path: /figures/{trick_id}/remove-picture/{picture_id}
+    defaults: { _controller: STSnowTricksBundle:Trick:removePictureFromTrick }
+    requirements:
+        trick_id: \d+
+        picture_id: \d+

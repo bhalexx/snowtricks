@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ST\SnowTricksBundle\Entity\Picture;
 use ST\SnowTricksBundle\Entity\Video;
+use ST\SnowTricksBundle\Entity\Comment;
 use ST\UserBundle\Entity\User;
 
 /**
@@ -61,6 +62,13 @@ class Trick
      * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Video", cascade={"persist", "remove"}, mappedBy="trick")
      */
     private $videos;
+
+    /**
+     * @var array
+     *
+     * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="trick")
+     */
+    private $comments;
 
     /**
      * @var string
@@ -276,6 +284,7 @@ class Trick
         $this->dateInsert = new \DateTime();
         $this->pictures = new ArrayCollection();
         $this->videos = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -287,6 +296,7 @@ class Trick
      */
     public function addPicture(Picture $picture)
     {
+        $picture->setTrick($this);
         $this->pictures[] = $picture;
 
         return $this;
@@ -311,6 +321,7 @@ class Trick
      */
     public function addVideo(Video $video)
     {
+        $video->setTrick($this);
         $this->videos[] = $video;
 
         return $this;
@@ -344,5 +355,40 @@ class Trick
     public function getVideos()
     {
         return $this->videos;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param Comment $comment
+     *
+     * @return Trick
+     */
+    public function addComment(Comment $comment)
+    {
+        $comment->setTrick($this);
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param Comment $comment
+     */
+    public function removeComment(Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

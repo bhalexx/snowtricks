@@ -1,0 +1,70 @@
+{{ form_start(form) }}
+	<div class="form-group">
+    	{{ form_label(form.name, "Nom") }}
+    	{{ form_widget(form.name, { 'attr': { 'class': 'form-control' } }) }}
+        {% if form_errors(form.name) %}
+    		<label class="error" for="name">{{ form_errors(form.name) }}</label>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+    	{{ form_label(form.description, "Description") }}
+    	{{ form_widget(form.description, { 'attr': { 'class': 'form-control' } }) }}
+        {% if form_errors(form.description) %}
+    		<label class="error" for="description">{{ form_errors(form.description) }}</label>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.family, "Groupe") }}
+        {{ form_widget(form.family, { 'attr': { 'class': 'form-control' } }) }}
+        {% if form_errors(form.family) %}
+            <label class="error" for="family">{{ form_errors(form.family) }}</label>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <div class="file-container">
+            {{ form_label(form.pictures, "Photos") }}
+            {{ form_widget(form.pictures) }}
+            <div class="droparea">
+                <div class="message">
+                    <div>
+                        <span class="fa fa-picture-o"></span>
+                        <p>Glissez-déposez les photos ici ou cliquez pour sélectionner les photos</p>
+                    </div>
+                </div>
+                <div class="list-pictures"></div>
+            </div>
+            {% if form_errors(form.pictures) %}
+                <label class="error" for="pictures">{{ form_errors(form.pictures) }}</label>
+            {% endif %}
+            <div class="pictures">
+                {% for picture in trick.pictures %}
+                    <div class="picture" style="background-image: url({{ asset(picture.webPath) }})">
+                        <div id="trick_remove_picture" class="hidden" data-path="{{ path('st_snowtricks.trick_remove_picture', { trick_id: trick.id, picture_id: picture.id }) }}"></div>
+                        <div class="overlay">
+                            <span class="fa fa-close"></span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.videos, "Vidéos") }}
+        <span class="legend"></span>
+        {{ form_widget(form.videos) }}
+        {% if form_errors(form.videos) %}
+            <label class="error" for="videos">{{ form_errors(form.videos) }}</label>
+        {% endif %}
+        <div class="collection-add btn btn-default" data-collection="trick_videos">Ajouter une vidéo</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+		<span>Enregistrer</span>
+	</button>
+{{ form_end(form) }}
+
+

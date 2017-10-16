@@ -1,0 +1,70 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} {{ trick.name }}
+{% endblock %}
+
+{% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        (trick.family.name) : path('st_snowtricks.family_view', { id : trick.family.id, slug : trick.family.slug }),
+        (trick.name) : path('st_snowtricks.trick_view', { id : trick.id, slug : trick.slug})
+    }} %}
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- NAME -->
+			<div class="row">
+				<h2>
+					{{ trick.name }} - {{ trick.family.name }}
+					{% if is_granted('ROLE_MEMBER') %}
+						<a href="{{ path('st_snowtricks.trick_edit', { id: trick.id, slug: trick.slug }) }}">Modifier</a>
+						<a href="{{ path('st_snowtricks.trick_delete', { id: trick.id, slug: trick.slug }) }}">Supprimer</a>
+					{% endif %}
+				</h2>
+			</div>
+
+			<!-- VIDEO --> 
+			{% if trick.videos is not empty %}
+				<div class="row">
+					{% for video in trick.videos %}
+						<iframe src="{{ video.path }}" frameborder="0" allowfullscreen></iframe>
+					{% endfor %}	
+				</div>		
+			{% endif %}			
+
+			<!-- DESCRIPTION -->
+			<div class="row">
+				<h4>Description</h4>
+				<p>
+					{{ trick.description }}
+				</p>
+			</div>
+
+
+			<!-- PICTURES -->
+			{% if trick.pictures is not empty %}
+				<hr />
+				<div class="row">
+					{% for picture in trick.pictures %}
+						<div class="col-xs-4 col-md-2">
+							<img src="{{ asset(picture.webPath) }}" alt="{{ trick.name }}" class="img-responsive" />
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			<hr/>
+			<!-- COMMENTS -->
+
+			{% if is_granted('ROLE_MEMBER') %}
+				<div class="row">
+					{{ render(controller('STSnowTricksBundle:Comment:add', { 'request': app.request, 'trick': trick })) }}
+				</div>
+			{% endif %}
+			<div class="row">
+				{{ render(controller('STSnowTricksBundle:Comment:list', { 'trick': trick })) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

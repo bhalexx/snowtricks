@@ -1,0 +1,24 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Ajouter une figure
+{% endblock %}
+
+{% block body %}
+	{% if trick.family is null %}
+		{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+	        'Accueil' : path('st_snowtricks.homepage'),
+	        'Ajouter une figure' : path('st_snowtricks.trick_add')
+	    }} %}	
+	{% else %}
+		{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+	        'Accueil' : path('st_snowtricks.homepage'),
+	        'Groupes' : path('st_snowtricks.family_list'),
+	        (trick.family.name) : path('st_snowtricks.family_view', { id: trick.family.id, slug: trick.family.slug }),
+	        'Ajouter une figure' : path('st_snowtricks.trick_add')
+	    }} %}
+	{% endif %}
+
+	<h2>Ajouter une figure</h2>
+	{{ include("STSnowTricksBundle:Trick:form.html.twig") }}
+{% endblock %}

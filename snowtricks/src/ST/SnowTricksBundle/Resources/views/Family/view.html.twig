@@ -5,23 +5,25 @@
 {% endblock %}
 
 {% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        (family.name) : path('st_snowtricks.family_view', { id : family.id, slug : family.slug })
+    }} %}
+
 	<div class="row">
 		<div class="col-xs-12">
 			<h2>
 				{{ family.name }} <small>{{ family.tricks|length }} figures</small>
 			</h2>
+			{% if is_granted('ROLE_MEMBER') %}
+				<a href="{{ path('st_snowtricks.trick_add_in', { family: family.slug }) }}" class="btn btn-primary">Ajouter une figure</a>
+			{% endif %}
 			<p>
 				{{ family.description }}
 			</p>
 			{% for trick in family.tricks %}
-				<div class="card col-lg-3">
-					<div class="card-header">
-						<b>{{ trick.name }}</b>
-					</div>
-					<div class="card-body">
-						{{ trick.description }}
-					</div>
-				</div>
+				{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
 			{% endfor %}
 		</div>
 	</div>

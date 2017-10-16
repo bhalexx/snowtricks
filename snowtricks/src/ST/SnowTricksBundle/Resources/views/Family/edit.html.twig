@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        (family.name) : path('st_snowtricks.family_view', { id: family.id, slug: family.slug }),
+        ('Modifier') : path('st_snowtricks.family_edit', { id : family.id, slug : family.slug })
+    }} %}
+
 	<h2>Modifier {{ family.name }}</h2>
 	{{ include("STSnowTricksBundle:Family:form.html.twig") }}
 {% endblock %}
