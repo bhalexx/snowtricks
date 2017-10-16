@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ST\UserBundle\Entity\User;
+use ST\SnowTricksBundle\Entity\Trick;
 
 /**
  * Comment
@@ -30,6 +31,14 @@ class Comment
     private $author;
 
     /**
+     * @var Trick
+     *
+     * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Trick", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $trick;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=255)
@@ -46,7 +55,7 @@ class Comment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdate", type="datetime")
+     * @ORM\Column(name="dateUpdate", type="datetime", nullable=true)
      */
     private $dateUpdate;
 
@@ -161,5 +170,28 @@ class Comment
     {
         return $this->dateUpdate;
     }
-}
 
+    /**
+     * Set trick
+     *
+     * @param Trick $trick
+     *
+     * @return Comment
+     */
+    public function setTrick(Trick $trick)
+    {
+        $this->trick = $trick;
+
+        return $this;
+    }
+
+    /**
+     * Get trick
+     *
+     * @return Trick
+     */
+    public function getTrick()
+    {
+        return $this->trick;
+    }
+}

@@ -1,0 +1,17 @@
+<div class="well">
+	<h4>Ajouter un commentaire</h4>
+	{{ form_start(form) }}
+		<div class="form-group">
+	    	{{ form_label(form.content, "Votre message") }}
+	    	{{ form_widget(form.content, { 'attr': { 'class': 'form-control' } }) }}
+	        {% if form_errors(form.content) %}
+	    		<label class="error" for="content">{{ form_errors(form.content) }}</label>
+	        {% endif %}
+	    </div>
+	    <div class="form-group">
+	    	<button type="submit" class="btn btn-primary">
+				<span>Envoyer</span>
+			</button>
+	    </div>
+	{{ form_end(form) }}
+</div>

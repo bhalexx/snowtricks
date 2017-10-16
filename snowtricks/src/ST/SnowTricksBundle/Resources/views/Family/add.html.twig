@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Groupes' : path('st_snowtricks.family_list'),
+        'Ajouter un groupe' : path('st_snowtricks.family_add')
+    }} %}
+
 	<h2>Ajouter un groupe</h2>
 	{{ include("STSnowTricksBundle:Family:form.html.twig") }}
 {% endblock %}
