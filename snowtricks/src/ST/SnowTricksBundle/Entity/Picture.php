@@ -139,7 +139,7 @@ class Picture
 
     protected function getUploadDir()
     {
-        return 'uploads/images';
+        return 'tricks';
     }
 
     /**

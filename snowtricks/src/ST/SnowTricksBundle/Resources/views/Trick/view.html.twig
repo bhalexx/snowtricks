@@ -24,11 +24,11 @@
 				</h2>
 			</div>
 
-			<!-- VIDEO --> 
+			<!-- VIDEO -->						
 			{% if trick.videos is not empty %}
 				<div class="row">
 					{% for video in trick.videos %}
-						<iframe src="{{ video.path }}" frameborder="0" allowfullscreen></iframe>
+						{{ video.path|raw }}
 					{% endfor %}	
 				</div>		
 			{% endif %}			
