@@ -4,5 +4,8 @@
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.2.1",
     "sass-loader": "^6.0.6"
+  },
+  "dependencies": {
+    "lightgallery": "^1.6.2"
   }
 }

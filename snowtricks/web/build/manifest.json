@@ -4,8 +4,18 @@
   "build/fonts/glyphicons-halflings-regular.ttf": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.e18bbf61.ttf",
   "build/fonts/glyphicons-halflings-regular.woff": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.fa277232.woff",
   "build/fonts/glyphicons-halflings-regular.woff2": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.448c34a5.woff2",
+  "build/fonts/lg.eot": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.ecff1170.eot",
+  "build/fonts/lg.ttf": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.4fe6f9ca.ttf",
+  "build/fonts/lg.woff": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.5fd4c338.woff",
   "build/global.css": "/symfony/snowtricks/snowtricks/web/build/global.css",
   "build/images/background.jpg": "/symfony/snowtricks/snowtricks/web/build/images/background.f8503003.jpg",
   "build/images/glyphicons-halflings-regular.svg": "/symfony/snowtricks/snowtricks/web/build/images/glyphicons-halflings-regular.89889688.svg",
-  "build/images/logo.png": "/symfony/snowtricks/snowtricks/web/build/images/logo.5681f073.png"
+  "build/images/lg.svg": "/symfony/snowtricks/snowtricks/web/build/images/lg.0cb1b8af.svg",
+  "build/images/loading.gif": "/symfony/snowtricks/snowtricks/web/build/images/loading.bbdac9cd.gif",
+  "build/images/logo.png": "/symfony/snowtricks/snowtricks/web/build/images/logo.5681f073.png",
+  "build/images/video-play.png": "/symfony/snowtricks/snowtricks/web/build/images/video-play.dc34cc9c.png",
+  "build/images/vimeo-play.png": "/symfony/snowtricks/snowtricks/web/build/images/vimeo-play.dfe7764b.png",
+  "build/images/youtube-play.png": "/symfony/snowtricks/snowtricks/web/build/images/youtube-play.e6f0c233.png",
+  "build/trick.js": "/symfony/snowtricks/snowtricks/web/build/trick.js",
+  "build/trick_style.css": "/symfony/snowtricks/snowtricks/web/build/trick_style.css"
 }

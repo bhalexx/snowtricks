@@ -20,9 +20,11 @@ Encore
 
     // will output as web/build/app.js
     .addEntry('app', './app/Resources/assets/js/main.js')
+    .addEntry('trick', './app/Resources/assets/js/trick.js')
 
     // will output as web/build/global.css
     .addStyleEntry('global', './app/Resources/assets/css/global.scss')
+    .addStyleEntry('trick_style', './app/Resources/assets/css/trick.scss')
 
     // allow sass/scss files to be processed
     .enableSassLoader()
