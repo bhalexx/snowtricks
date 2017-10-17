@@ -3,9 +3,11 @@ Families:
         name: "Grabs"
         slug: "grabs"
         description: |
-            Un grab consiste à attraper la planche avec la main pendant le saut. Le verbe anglais to grab signifie « attraper. »
+            Un <b>grab</b> consiste à attraper la planche avec la main pendant le saut. Le verbe anglais <i>to grab</i> signifie « attraper. »
             Un grab est d'autant plus réussi que la saisie est longue.
-            De plus, le saut est d'autant plus esthétique que la saisie du snowboard est franche, ce qui permet au rideur d'accentuer la torsion de son corps grâce à la tension de sa main sur la planche. On dit alors que le grab est tweaké (le verbe anglais to tweak signifie « pincer » mais a également le sens de « peaufiner »).
+            De plus, le saut est d'autant plus esthétique que la saisie du snowboard est franche, ce qui permet au rideur d'accentuer la torsion de son corps grâce à la tension de sa main sur la planche. On dit alors que le grab est <i>tweaké</i> (en anglais, <i>to tweak</i> signifie « pincer » mais a également le sens de « peaufiner »).
+            
+            Il existe plusieurs types de grabs selon la position de la saisie et la main choisie pour l'effectuer, avec des difficultés variables :
         tricks:
             Trick1:
                 name: "Mute"
@@ -102,7 +104,14 @@ Families:
     Family2:
         name: "Rotations"
         slug: "rotations"
-        description: "On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d'effectuer une rotation horizontale pendant le saut, puis d'attérir en position switch ou normal."
+        description: |
+            On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d'effectuer une rotation horizontale pendant le saut, puis d'attérir en position switch ou normal.
+
+            Une rotation peut être <b>frontside</b> ou <b>backside</b> : une rotation frontside correspond à une rotation orientée vers la carre backside. Cela peut paraître incohérent mais l'origine étant que dans un halfpipe ou une rampe de skateboard, une rotation frontside se déclenche naturellement depuis une position frontside (i.e. l'appui se fait sur la carre frontside), et vice-versa. Ainsi pour un rider qui a une position regular (pied gauche devant), une rotation frontside se fait dans le sens inverse des aiguilles d'une montre.
+
+            Une rotation peut être agrémentée d'un grab, ce qui rend le saut plus esthétique mais aussi plus difficile car la position tweakée a tendance à déséquilibrer le rideur et désaxer la rotation. De plus, le sens de la rotation a tendance à favoriser un sens de grab plutôt qu'un autre. Les rotations de plus de trois tours existent mais sont plus rares, d'abord parce que les modules assez gros pour lancer un tel saut sont rares, et ensuite parce que la vitesse de rotation est tellement élevée qu'un grab devient difficile, ce qui rend le saut considérablement moins esthétique.
+
+            La nomenclature se base sur le nombre de degrés de rotation effectués  :
         tricks:
             Trick1:
                 name: "180"
