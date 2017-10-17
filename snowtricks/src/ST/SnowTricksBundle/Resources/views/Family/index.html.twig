@@ -17,32 +17,29 @@
 {% endblock %}
 
 {% block body %}
-	<div class="home">
-
-		{% for family in families %}
-			<div class="row">
-				<div class="col-xs-12 title">
-					<h2>
-						<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">
-							# {{ family.name }}
-						</a>
-					</h2>
-					<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}" class="seemore btn btn-primary">
-						<span class="fa fa-hand-o-right"></span> Voir tout
+	{% for family in families %}
+		<div class="row">
+			<div class="col-xs-12 title">
+				<h2>
+					<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">
+						# {{ family.name }}
 					</a>
-				</div>
-				{% for trick in family.tricks|shuffle|slice(0,4) %}
-					{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
-				{% endfor %}
+				</h2>
+				<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}" class="seemore btn btn-primary">
+					<span class="fa fa-hand-o-right"></span> Voir tout
+				</a>
 			</div>
+			{% for trick in family.tricks|shuffle|slice(0,4) %}
+				{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
+			{% endfor %}
+		</div>
 
-			{% if not loop.last %}
-				<div class="separator"></div>
-			{% endif %}	
-		{% else %}
-			<p class="text-center">
-				Aucun groupe n'existe encore. <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour en créer un !
-			</p>
-		{% endfor %}
-	</div>
+		{% if not loop.last %}
+			<div class="separator"></div>
+		{% endif %}	
+	{% else %}
+		<p class="text-center">
+			Aucun groupe n'existe encore. <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour en créer un !
+		</p>
+	{% endfor %}
 {% endblock %}

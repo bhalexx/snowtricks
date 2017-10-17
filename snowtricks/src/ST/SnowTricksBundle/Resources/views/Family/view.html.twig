@@ -4,6 +4,11 @@
   {{ parent() }} {{ family.name }}
 {% endblock %}
 
+{% block registerGrip %}
+	Consulter les figures d'un groupe, c'est bien. Pouvoir y ajouter des figures, c'est mieux !<br/>
+	Qu'attendez-vous pour vous inscrire ?
+{% endblock %}
+
 {% block body %}
 	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
         'Accueil' : path('st_snowtricks.homepage'),
@@ -12,19 +17,70 @@
     }} %}
 
 	<div class="row">
-		<div class="col-xs-12">
+		<!-- NAME -->
+		<div class="col-xs-12 title">
 			<h2>
-				{{ family.name }} <small>{{ family.tricks|length }} figures</small>
+				# {{ family.name }} <small>- {{ family.tricks|length }} figures</small>
 			</h2>
 			{% if is_granted('ROLE_MEMBER') %}
-				<a href="{{ path('st_snowtricks.trick_add_in', { family: family.slug }) }}" class="btn btn-primary">Ajouter une figure</a>
+				<div class="options">
+					<a href="{{ path('st_snowtricks.trick_add_in', { family: family.slug }) }}" class="btn btn-primary">
+					 	<span class="fa fa-plus-circle"></span> Ajouter une figure
+					</a>
+					<a href="{{ path('st_snowtricks.family_edit', { id: family.id, slug: family.slug }) }}" class="btn btn-primary">
+					 	<span class="fa fa-pencil"></span> Modifier
+					</a>
+					<a href="{{ path('st_snowtricks.family_delete', { id: family.id, slug: family.slug }) }}" class="btn btn-danger">
+					 	<span class="fa fa-trash"></span> Supprimer
+					</a>
+				</div>
 			{% endif %}
-			<p>
-				{{ family.description }}
+		</div>
+
+		<!-- DESCRIPTION -->
+		<div class="col-xs-12">
+			<p class="description">
+				{{ family.description|nl2br }}
 			</p>
-			{% for trick in family.tricks %}
-				{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
-			{% endfor %}
+		</div>
+
+		<!-- TRICKS -->
+		{% for trick in family.tricks %}
+			{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
+		{% endfor %}
+
+		<div class="col-lg-3">
+			<div class="card incentive">
+				<div class="card-header">
+					<div class="cover"></div>
+					<b>Une figure manque ?</b>
+				</div>
+				<div class="card-body">
+					{% if is_granted('ROLE_MEMBER') %}
+						<p>
+							Vous souhaitez parler d'une figure qui manque à ce groupe ?<br/>
+							Ajoutez-la !
+						</p>
+						<p class="text-center">
+							<a href="{{ path('st_snowtricks.trick_add_in', { family: family.slug }) }}" class="btn btn-primary">
+							 	<span class="fa fa-plus-circle"></span> Ajouter une figure
+							</a>
+						</p>
+					{% else %}
+						<p>
+							Vous devez être connecté(e) pour ajouter une nouvelle figure.
+						</p>
+						<p class="text-center">
+							<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">
+							 	S'inscrire
+							</a>
+							<a href="{{ path('fos_user_security_login') }}" class="btn btn-primary">
+								Se connecter
+							</a>
+						</p>
+					{% endif %}
+				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}
