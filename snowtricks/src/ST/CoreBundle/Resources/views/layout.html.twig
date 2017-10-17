@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,600,300,800,700">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	    {% block stylesheet %}
@@ -22,7 +23,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{ path('st_snowtricks.homepage') }}">SnowTricks</a>
+					<a class="navbar-brand logo" href="{{ path('st_snowtricks.homepage') }}">
+						
+					</a>
 				</div>
 		        <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -69,17 +72,19 @@
             {% endfor %}
         {% endfor %}
 
-		{% if not app.user %}
-			<div class="container-fluid anonymous">
+		{% if not app.user or app.request.get('_route') == 'st_snowtricks.homepage' %}
+			<div class="container-fluid coversite">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 text-center">
 							<p>
 								{% block registerGrip %}{% endblock %}
 							</p>
-							<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">
-								Inscription
-							</a>
+							{% if not app.user %}
+								<a href="{{ path('fos_user_registration_register') }}" class="btn btn-default">
+									<span class="fa fa-snowflake-o"></span> Inscription
+								</a>
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -88,8 +93,62 @@
 		<div class="container-fluid">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-xs-12 content">
 						{% block body %}{% endblock %}						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-4">
+						<span class="fa fa-copyright"></span> SnowTricks - {{ 'now'|date('Y') }}
+					</div>
+					<div class="col-xs-12 col-md-4 text-center">
+						<h5>Suivez-nous</h5>
+						<ul class="list-unstyled list-inline">
+							<li>
+								<a href="#">
+									<span class="fa fa-facebook-square"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa fa-twitter-square"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa fa-google-plus-square"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-md-4 text-right">
+						<h5>Liens</h5>
+						<ul class="list-unstyled">
+							{% if not app.user %}
+								<li>
+									<a href="{{ path('fos_user_security_login') }}">Se connecter</a>
+								</li>
+								<li>
+									<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+								</li>
+							{% endif %}
+							<li>
+								<a href="{{ path('st_snowtricks.family_list') }}">Groupes</a>
+							</li>
+							{% if is_granted('ROLE_ADMIN') %}
+								<li>
+									<a href="">Utilisateurs</a>
+								</li>
+							{% endif %}
+							<li>
+								<a href="#">Mentions légales</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>

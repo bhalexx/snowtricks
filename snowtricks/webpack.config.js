@@ -1,6 +1,6 @@
 var Encore = require('@symfony/webpack-encore');
 
-var devPath = '/symfony/snowtricks/web/build';
+var devPath = '/symfony/snowtricks/snowtricks/web/build';
 var prodPath = '/web/build';
 var path = Encore.isProduction() ? prodPath : devPath;
 
