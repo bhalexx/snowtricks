@@ -13,7 +13,8 @@ Families:
                     comment2: "C'est la base, mais faut déjà le faire..."
                     comment3: "J'ai réussi !!!"
                 videos:
-                    video1: '<iframe src="https://www.youtube.com/embed/hih9jIzOoRg?start=7" frameborder="0" allowfullscreen></iframe>'
+                    video1: '<iframe src="https://www.youtube.com/embed/JGaZ_qctLvA" frameborder="0" allowfullscreen></iframe>'
+                    video2: '<iframe src="https://www.youtube.com/embed/hih9jIzOoRg?start=7" frameborder="0" allowfullscreen></iframe>'
             
             Trick2:
                 name: "Sad"
@@ -95,40 +96,80 @@ Families:
                 videos:
                     video1: '<iframe src="https://www.youtube.com/embed/3HneYxmwD4Y" frameborder="0" allowfullscreen></iframe>'
     
-    # Family2:
-    #     name: "Rotations"
-    #     slug: "rotations"
-    #     description: "On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d'effectuer une rotation horizontale pendant le saut, puis d'attérir en position switch ou normal."
-    #     tricks:
-    #         Trick1:
-    #             name: "180"
-    #             slug: "180"
-    #             description: "Désigne un demi-tour, soit 180 degrés d'angle"
+    Family2:
+        name: "Rotations"
+        slug: "rotations"
+        description: "On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d'effectuer une rotation horizontale pendant le saut, puis d'attérir en position switch ou normal."
+        tricks:
+            Trick1:
+                name: "180"
+                slug: "180"
+                description: "Désigne un demi-tour, soit 180 degrés d'angle"
+                comments:
+                    comment1: "Dire que ce n'est même pas le plus compliqué..."
+                    comment2: "Non, mais quand même, pas super simple !"
+                videos:
+                    video1: '<iframe src="https://www.youtube.com/embed/oI-umOzNBME" frameborder="0" allowfullscreen></iframe>'
+                    video2: '<iframe src="https://www.youtube.com/embed/JMS2PGAFMcE" frameborder="0" allowfullscreen></iframe>'
+                    video3: '<iframe src="https://player.vimeo.com/video/7678393" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
             
-    #         Trick2:
-    #             name: "360"
-    #             slug: "360"
-    #             description: "trois six pour un tour complet"
+            Trick2:
+                name: "360"
+                slug: "360"
+                description: "trois six pour un tour complet"
+                comments:
+                    comment1: "Quel kiff cette figure !!!"
+                    comment2: "Grave, mais j'ai une préférence pour le 540 !"
+                videos:
+                    video1: '<iframe src="https://player.vimeo.com/video/14050350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
             
-    #         Trick3:
-    #             name: "540"
-    #             slug: "540"
-    #             description: "cinq quatre pour un tour et demi"
+            Trick3:
+                name: "540"
+                slug: "540"
+                description: "cinq quatre pour un tour et demi"
+                comments:
+                    comment1: "Ma préférée..."
+                    comment2: "La seule que j'ai réussie du premier coup..."
+                    comment3: "Les vidéos sont terribles !"
+                videos:
+                    video1: '<iframe src="https://player.vimeo.com/video/35387311" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+                    video2: '<iframe src="https://www.youtube.com/embed/Khi8hp2Zlhg" frameborder="0" allowfullscreen></iframe>'
+                    video3: '<iframe src="https://www.youtube.com/embed/XnYlAulS0JQ" frameborder="0" allowfullscreen></iframe>'
+            
+            Trick4:
+                name: "720"
+                slug: "720"
+                description: "sept deux pour deux tours complets"
+                comments:
+                    comment1: "J'ai hâte d'essayer, la vidéo explique trop bien !"
+                    comment2: "Tu as déjà testé sur trampoline avant ?"
+                videos:
+                    video1: '<iframe src="https://www.youtube.com/embed/XkkUSEz3I00?start=13" frameborder="0" allowfullscreen></iframe>'
 
-    #         Trick4:
-    #             name: "720"
-    #             slug: "720"
-    #             description: "sept deux pour deux tours complets"
+            Trick5:
+                name: "900"
+                slug: "900"
+                description: "pour deux tours et demi"
+                comments:
+                    comment1: "Ca m'a pris 3 ans pour y arriver !"
+                    comment2: "Pas loin pour moi aussi..."
+                    comment3: "Ouais, elle demande beaucoup de technique et ... de patience :)"
+                    comment4: "Je me retrouve tellement dans les fails..."
+                videos:
+                    video1: '<iframe src="https://www.youtube.com/embed/g8QUV2Vl1Zw" frameborder="0" allowfullscreen></iframe>'
+                    video2: '<iframe src="https://player.vimeo.com/video/36883530" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+                    video3: '<iframe src="https://www.youtube.com/embed/t5bCoPhBWP8" frameborder="0" allowfullscreen></iframe>'
 
-    #         Trick5:
-    #             name: "900"
-    #             slug: "900"
-    #             description: "pour deux tours et demi"
-
-    #         Trick6:
-    #             name: "1080"
-    #             slug: "1080"
-    #             description: "Aussi appelé big foot. Pour trois tours"
+            Trick6:
+                name: "1080"
+                slug: "1080"
+                description: "Aussi appelé big foot. Pour trois tours"
+                comments:
+                    comment1: "Faut déjà savoir compter jusqu'à trois pour y arriver..."
+                    comment2: "Si tu sais pas le faire, t'as un problème quand même."
+                    comment3: "Non mais c'est vrai, en plein dedans, t'as vite oublié à combien t'en es."
+                videos:
+                    video1: '<iframe src="https://player.vimeo.com/video/52381425" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 
     # Family3:
     #     name: "Flips"

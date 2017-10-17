@@ -5,32 +5,44 @@
 {% endblock %}
 
 {% block registerGrip %}
-	Bienvenue sur le site communautaire pour les inconditionnels de snowboard !<br/>
-	Connectez-vous pour prendre part à cette belle communauté ou inscrivez-vous si ce n'est pas déjà fait !
+	{% if not app.user %}
+		Bienvenue sur le site communautaire pour les inconditionnels de snowboard !<br/>
+		<a href="{{ path('fos_user_security_login') }}" class="link">Connectez-vous</a> pour prendre part à cette belle communauté ou inscrivez-vous si ce n'est pas déjà fait !
+	{% else %}
+		Ça fait plaisir de vous revoir, <b>{{ app.user.username }}</b> !<br/>
+		<a href="{{ path('st_snowtricks.trick_add') }}" class="btn-custom btn btn-default">
+			<span class="fa fa-plus-circle"></span> Ajouter une figure
+		</a>
+	{% endif %}	
 {% endblock %}
 
 {% block body %}
-	{% if is_granted('ROLE_MEMBER') %}
-		<a href="{{ path('st_snowtricks.trick_add') }}" class="btn btn-primary">Ajouter une figure</a>
-	{% endif %}
+	<div class="home">
 
-	{% for family in families %}
-		<div class="row">
-			<div class="col-xs-12">
-				<h2>
-					{{ family.name }}
-					{% if is_granted('ROLE_MEMBER') %}
-						<a href="{{ path('st_snowtricks.family_edit', { id: family.id, slug: family.slug }) }}">Modifier</a>
-						<a href="{{ path('st_snowtricks.family_delete', { id: family.id, slug: family.slug }) }}">Supprimer</a>
-					{% endif %}
-				</h2>
-				<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">Voir tout</a>
+		{% for family in families %}
+			<div class="row">
+				<div class="col-xs-12 title">
+					<h2>
+						<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">
+							# {{ family.name }}
+						</a>
+					</h2>
+					<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}" class="seemore btn btn-primary">
+						<span class="fa fa-hand-o-right"></span> Voir tout
+					</a>
+				</div>
+				{% for trick in family.tricks|shuffle|slice(0,4) %}
+					{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
+				{% endfor %}
 			</div>
-			{% for trick in family.tricks|shuffle|slice(0,4) %}
-				{% include "STSnowTricksBundle:Family:trick.template.html.twig" %}
-			{% endfor %}
-		</div>		
-	{% else %}
-		Aucun groupe n'existe encore. Connectez-vous pour en créer un !
-	{% endfor %}
+
+			{% if not loop.last %}
+				<div class="separator"></div>
+			{% endif %}	
+		{% else %}
+			<p class="text-center">
+				Aucun groupe n'existe encore. <a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour en créer un !
+			</p>
+		{% endfor %}
+	</div>
 {% endblock %}
