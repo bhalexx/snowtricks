@@ -4,7 +4,7 @@ namespace ST\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class UserController extends Controller
 {
     public function indexAction()
     {
