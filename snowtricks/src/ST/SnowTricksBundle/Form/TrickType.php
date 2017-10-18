@@ -22,9 +22,14 @@
 			$picturesRequired = $options['data']->getId() === null;
 			
 			$builder
-				->add('name', TextType::class)
-				->add('description', TextareaType::class)
+				->add('name', TextType::class, array(
+					'label' => 'Nom'
+				))
+				->add('description', TextareaType::class, array(
+					'label' => 'Description'
+				))
 				->add('family', EntityType::class, array(
+					'label' => 'Groupe',
 					'class' => 'STSnowTricksBundle:Family',
 					'choice_label' => 'name',
 					'multiple' => false
