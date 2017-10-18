@@ -1,4 +1,0 @@
-services:
-#    st_snow_tricks.example:
-#        class: ST\SnowTricksBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

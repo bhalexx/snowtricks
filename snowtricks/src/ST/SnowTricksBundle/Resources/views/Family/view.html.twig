@@ -20,7 +20,7 @@
 		<!-- NAME & OPTIONS -->
 		<div class="col-xs-12 title">
 			<h2>
-				# {{ family.name }} <small>- {{ family.tricks|length }} figures</small>
+				# {{ family.name }} <small>- {{ count }} figure{% if count > 1 %}s{% endif %}</small>
 			</h2>
 			{% if is_granted('ROLE_MEMBER') %}
 				<div class="options">

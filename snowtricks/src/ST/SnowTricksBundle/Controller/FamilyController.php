@@ -23,7 +23,8 @@ class FamilyController extends Controller
     public function viewAction(Family $family)
     {
     	return $this->render('STSnowTricksBundle:Family:view.html.twig', array(
-        	'family' => $family
+        	'family' => $family,
+            'count' => count($family->getTricks())
         ));
     }
 
@@ -96,7 +97,8 @@ class FamilyController extends Controller
         $families = $em->getRepository('STSnowTricksBundle:Family')->findAll();
 
         return $this->render('STSnowTricksBundle:Family:list.html.twig', array(
-            'families' => $families
+            'families' => $families,
+            'count' => count($families)
         ));
     }
 }

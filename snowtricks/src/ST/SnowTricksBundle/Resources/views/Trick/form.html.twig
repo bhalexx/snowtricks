@@ -1,28 +1,15 @@
 {{ form_start(form) }}
-	<div class="form-group">
-    	{{ form_label(form.name, "Nom") }}
-    	{{ form_widget(form.name, { 'attr': { 'class': 'form-control' } }) }}
-        {% if form_errors(form.name) %}
-    		<label class="error" for="name">{{ form_errors(form.name) }}</label>
-        {% endif %}
-    </div>
+    
+    <!-- NAME -->
+	{{ form_row(form.name) }}
 
-    <div class="form-group">
-    	{{ form_label(form.description, "Description") }}
-    	{{ form_widget(form.description, { 'attr': { 'class': 'form-control' } }) }}
-        {% if form_errors(form.description) %}
-    		<label class="error" for="description">{{ form_errors(form.description) }}</label>
-        {% endif %}
-    </div>
+    <!-- DESCRIPTION -->
+    {{ form_row(form.description) }}
 
-    <div class="form-group">
-        {{ form_label(form.family, "Groupe") }}
-        {{ form_widget(form.family, { 'attr': { 'class': 'form-control' } }) }}
-        {% if form_errors(form.family) %}
-            <label class="error" for="family">{{ form_errors(form.family) }}</label>
-        {% endif %}
-    </div>
+    <!-- FAMILY -->
+    {{ form_row(form.family) }}
 
+    <!-- PICTURES -->
     <div class="form-group">
         <div class="file-container">
             {{ form_label(form.pictures, "Photos") }}
@@ -52,9 +39,29 @@
         </div>
     </div>
 
+    <!-- VIDEOS -->
     <div class="form-group">
-        {{ form_label(form.videos, "Vidéos") }}
-        <span class="legend"></span>
+        {{ form_label(form.videos, "Vidéos") }} {# <span class="fa fa-question-circle" id="showHelp"></span> #}
+        {# <div class="legend">
+            Retrouvez ci-dessous les liens d'aide pour partager des vidéos à partir des différentes plateformes.
+            <ul class="list-unstyled">
+                <li>
+                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                        <span class="fa fa-youtube-play"></span> Partager une vidéo YouTube
+                    </a>
+                </li>
+                <li>
+                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                        <span class="fa fa-vimeo"></span> Partager une vidéo Vimeo
+                    </a>
+                </li>
+                <li>
+                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                        <span class="fa fa-play"></span> Partager une vidéo DailyMotion
+                    </a>
+                </li>
+            </ul>
+        </div> #}
         {{ form_widget(form.videos) }}
         {% if form_errors(form.videos) %}
             <label class="error" for="videos">{{ form_errors(form.videos) }}</label>

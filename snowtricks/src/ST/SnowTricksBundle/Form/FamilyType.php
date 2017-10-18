@@ -13,8 +13,13 @@
 		public function buildForm(FormBuilderInterface $builder, array $options)
 		{
 			$builder
-				->add('name', TextType::class)
-				->add('description', TextareaType::class)
+				->add('name', TextType::class, array(
+					'label' => 'Nom'
+				))
+				->add('description', TextareaType::class, array(
+					'label' => 'Description',
+					'attr' => array('class' => 'ckeditor')
+				))
 			;
 		}
 
