@@ -32,9 +32,8 @@ Those dependencies are included in package.json
 4. Rename `snowtricks/app/config/parameters.yml.dist` in `snowtricks/app/config/parameters.dist` and edit database parameters with yours.
 5. Execute command line `php bin/console doctrine:database:create`.
 6. Now that your database is created, you have to create tables with command line `php bin/console doctrine:schema:update --force`.
-Your project is ready to be run!
-I can hear you saying: "Wait... I don't want to create families and tricks one by one..."
-Don't worry!
+##### Your project is ready to be run!
+##### I can hear you saying: "Wait... I don't want to create families and tricks one by one...". Don't worry!
 7. Run `php bin/console snowtricks:fixtures:load` and wait until it's done. Now you have a website full of families and tricks!
 8. Enjoy!
 
