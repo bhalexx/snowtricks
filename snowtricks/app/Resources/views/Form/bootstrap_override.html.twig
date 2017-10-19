@@ -1,0 +1,60 @@
+{% use "bootstrap_3_layout.html.twig" %}
+
+{# Widget override #}
+{# See https://stackoverflow.com/a/27906497 to know how it was done #}
+
+{# Button row #}
+{% block button_row -%}
+    <div class="form-group button-container">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row %}
+
+{# Button #}
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' btn')|trim}) %}
+    {% if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+            }) %}
+        {%- else -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    {% if icon|default %}
+        {% set iconHtml = '<span class="fa ' ~ icon ~ '"></span> ' %}
+    {% else %}
+        {% set iconHtml = '' %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ iconHtml|raw }}{{ label|trans({}, translation_domain) }}</button>
+{%- endblock button_widget %}
+
+{# Label #}
+{% block form_label -%}
+    {% if label is not sameas(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif %}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif %}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        {% if icon|default %}
+            {% set iconHtml = '<span class="fa ' ~ icon ~ '"></span> ' %}
+        {% else %}
+            {% set iconHtml = '' %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ iconHtml|raw }}{{ label|trans({}, translation_domain) }}</label>
+    {%- endif %}
+{%- endblock form_label %}

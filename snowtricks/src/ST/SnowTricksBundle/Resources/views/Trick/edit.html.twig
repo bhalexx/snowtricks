@@ -1,7 +1,7 @@
 {% extends "STCoreBundle::layout.html.twig" %}
 
 {% block title %}
-  {{ parent() }} Modifier {{ trick.name }}
+  {{ parent() }} Modifier la figure {{ trick.name }}
 {% endblock %}
 
 {% block body %}
@@ -13,6 +13,11 @@
         ('Modifier') : path('st_snowtricks.trick_edit', { id : trick.id, slug : trick.slug })
     }} %}
 
-	<h2>Modifier {{ trick.name }}</h2>
+	<h2>Modifier la figure {{ trick.name }}</h2>
 	{{ include("STSnowTricksBundle:Trick:form.html.twig") }}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('build/trick_form.js') }}"></script>
 {% endblock %}

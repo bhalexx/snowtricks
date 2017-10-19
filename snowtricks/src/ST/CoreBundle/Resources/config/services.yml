@@ -14,3 +14,13 @@ services:
       arguments: ["@twig"]
       tags:
         - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    # Form extensions for adding icons to form elements
+    foobar.form_extention.button_icon:
+        class: ST\CoreBundle\Form\Extension\ButtonTypeIconExtension
+        tags:
+          - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ButtonType }
+    foobar.form_extention.form_icon:
+        class: ST\CoreBundle\Form\Extension\FieldTypeIconExtension
+        tags:
+          - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }

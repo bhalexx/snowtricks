@@ -22,3 +22,8 @@
 	<h2>Ajouter une figure</h2>
 	{{ include("STSnowTricksBundle:Trick:form.html.twig") }}
 {% endblock %}
+
+{% block javascript %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('build/trick_form.js') }}"></script>
+{% endblock %}

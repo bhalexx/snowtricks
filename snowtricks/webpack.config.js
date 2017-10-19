@@ -20,6 +20,7 @@ Encore
 
     // will output as web/build/app.js
     .addEntry('app', './app/Resources/assets/js/main.js')
+    .addEntry('trick_form', './app/Resources/assets/js/trick.form.js')
     .addEntry('trick', './app/Resources/assets/js/trick.js')
 
     // will output as web/build/global.css

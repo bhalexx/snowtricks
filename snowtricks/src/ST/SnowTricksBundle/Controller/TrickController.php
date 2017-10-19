@@ -12,6 +12,7 @@ use ST\SnowTricksBundle\Entity\Comment;
 use ST\SnowTricksBundle\Entity\Picture;
 use ST\SnowTricksBundle\Form\TrickType;
 use ST\SnowTricksBundle\Form\CommentType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class TrickController extends Controller
 {
@@ -60,7 +61,8 @@ class TrickController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
+            //Set trick's date update
+            $trick->setDateUpdate(new \DateTime());
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('success', 'La figure a bien été modifiée !');
