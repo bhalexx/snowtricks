@@ -1,0 +1,5 @@
+services:
+    st_snowtricks.event.trick_post_update:
+        class: ST\SnowTricksBundle\DoctrineListener\TrickPostUpdate
+        tags:
+          - { name: doctrine.event_listener, event: postUpdate }

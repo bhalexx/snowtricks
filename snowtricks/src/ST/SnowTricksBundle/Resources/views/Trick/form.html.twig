@@ -1,3 +1,4 @@
+{% form_theme form with ['form/bootstrap_override.html.twig'] %}
 {{ form_start(form) }}
     
     <!-- NAME -->
@@ -41,36 +42,40 @@
 
     <!-- VIDEOS -->
     <div class="form-group">
-        {{ form_label(form.videos, "Vidéos") }} {# <span class="fa fa-question-circle" id="showHelp"></span> #}
-        {# <div class="legend">
-            Retrouvez ci-dessous les liens d'aide pour partager des vidéos à partir des différentes plateformes.
+        {{ form_label(form.videos, "Vidéos") }} <span class="fa fa-question-circle" id="showHelp"></span>
+        <div id="help">
+            <p>Retrouvez ci-dessous les liens d'aide pour partager des vidéos à partir des différentes plateformes.</p>
             <ul class="list-unstyled">
                 <li>
-                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                    <a href="https://support.google.com/youtube/answer/171780?hl=fr" target="_blank">
                         <span class="fa fa-youtube-play"></span> Partager une vidéo YouTube
                     </a>
                 </li>
                 <li>
-                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                    <a href="https://help.vimeo.com/hc/fr/articles/229326167-Fonctionnalit%C3%A9s-de-partage" target="_blank">
                         <span class="fa fa-vimeo"></span> Partager une vidéo Vimeo
                     </a>
                 </li>
                 <li>
-                    <a href="https://support.google.com/youtube/answer/171780?hl=fr">
+                    <a href="http://dailymotion.canalblog.com/archives/2011/02/10/20351553.html" target="_blank">
                         <span class="fa fa-play"></span> Partager une vidéo DailyMotion
                     </a>
                 </li>
             </ul>
-        </div> #}
+            <p>La manipulation est relativement la même pour toutes les plateformes...</p>
+        </div>
         {{ form_widget(form.videos) }}
+        
         {% if form_errors(form.videos) %}
             <label class="error" for="videos">{{ form_errors(form.videos) }}</label>
         {% endif %}
-        <div class="collection-add btn btn-default" data-collection="trick_videos">Ajouter une vidéo</div>
+        <div class="collection-add btn btn-default" data-collection="trick_videos">
+            <span class="fa fa-plus-circle"></span> Ajouter une vidéo
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">
-		<span>Enregistrer</span>
+        <span class="fa fa-floppy-o"></span> Enregistrer
 	</button>
 {{ form_end(form) }}
 
