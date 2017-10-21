@@ -4,6 +4,8 @@ namespace ST\SnowTricksBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use ST\SnowTricksBundle\Entity\Trick;
 use ST\SnowTricksBundle\Entity\Comment;
@@ -11,15 +13,36 @@ use ST\SnowTricksBundle\Form\CommentType;
 
 class CommentController extends Controller
 {
-	public function listAction(Trick $trick)
+	/**
+	 * @ParamConverter("trick", options={"mapping": {"trick": "id"}})
+	 */
+	public function listAction(Request $request, Trick $trick, $page)
 	{
-		$comment = new Comment();
-        $form = $this->get('form.factory')->create(CommentType::class, $comment);
+		//This request is only callable by Ajax
+		if ($request->isXmlHttpRequest())
+        {
+			$nbPerPage = 10;
+			$nbPages;
+            
+            //Get comments
+            $em = $this->getDoctrine()->getManager();
+            $comments = $em->getRepository('STSnowTricksBundle:Comment')->getPaginatedComments($page, $nbPerPage, $trick);
 
-		return $this->render('STSnowTricksBundle:Comment:list.html.twig', array(
-			'trick' => $trick,
-			'form' => $form->createView()
-		));
+            //Return JSON response
+            $view = $this->renderView('STSnowTricksBundle:Comment:list.html.twig', array(
+            	'comments' => $comments
+            ));
+
+            $nbPages = ceil(count($comments) / $nbPerPage);
+
+            return new JsonResponse(array(
+            	'lastPage' => $nbPages - 1 <= (int)$page, 
+            	'view' => $view
+        	));
+        }
+
+        //If request not called by Ajax
+        throw new NotFoundHttpException();
 	}
 
 	public function addAction(Request $request, Trick $trick)
@@ -34,6 +57,7 @@ class CommentController extends Controller
             $em->persist($comment);
             $em->flush();
 
+            //Unset comment & form to reset form
             unset($comment);
             unset($form);
             $comment = new Comment();

@@ -60,3 +60,12 @@ st_snowtricks.trick_remove_picture:
     requirements:
         trick_id: \d+
         picture_id: \d+
+
+st_snowtricks.trick_comments:
+    path: /figures/{trick}/comments/{page}
+    defaults: 
+        _controller: STSnowTricksBundle:Comment:list
+        page: 0
+    requirements:
+        trick: \d+
+        page: \d+

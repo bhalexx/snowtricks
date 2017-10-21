@@ -116,8 +116,20 @@
 					</div>
 				{% endif %}
 			</div>
-			<div class="col-xs-12">
-				{{ render(controller('STSnowTricksBundle:Comment:list', { 'trick': trick })) }}
+			<div class="col-xs-12 comments">
+				<h3>Commentaires</h3>
+				<div id="commentsContainer"></div>
+				<div class="text-center">
+					<div id="loadMore" class="btn btn-primary" data-controller="{{ path('st_snowtricks.trick_comments', { trick: trick.id, page: 0 }) }}">
+						<span id="default">
+							<span class="fa fa-comments-o"></span> Charger plus de commentaires
+						</span>
+
+						<span id="processing">
+							<span class="fa fa-spinner fa-pulse fa-fw"></span> Chargement...
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
