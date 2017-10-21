@@ -2,6 +2,9 @@
 
 namespace ST\SnowTricksBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use ST\SnowTricksBundle\Entity\Trick;
+
 /**
  * CommentRepository
  *
@@ -10,4 +13,18 @@ namespace ST\SnowTricksBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getPaginatedComments($page = 0, $maxResults = 10, Trick $entity = null)
+	{
+		$query = $this
+					->createQueryBuilder('c')
+		            ->where('c.trick = :trick')
+		            ->setParameter('trick', $entity->getId())
+		            ->setFirstResult($page * $maxResults)
+		            ->setMaxResults($maxResults)
+		            ->orderBy('c.id', 'desc');
+
+        $result = new Paginator($query);
+
+        return $result;
+	}
 }
