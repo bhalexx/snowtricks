@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@STCoreBundle/Resources/config/services.yml" }
     - { resource: "@STSnowTricksBundle/Resources/config/services.yml" }
+    - { resource: "@STUserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -80,6 +81,9 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+    registration:
+        form:
+            type: ST\UserBundle\Form\RegistrationType
 
 # Stof\DoctrineExtensionsBundle configuration
 stof_doctrine_extensions:

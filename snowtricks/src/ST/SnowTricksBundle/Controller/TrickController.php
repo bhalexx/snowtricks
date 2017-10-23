@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use ST\SnowTricksBundle\Entity\Family;
 use ST\SnowTricksBundle\Entity\Trick;
 use ST\SnowTricksBundle\Entity\Comment;
@@ -26,9 +27,10 @@ class TrickController extends Controller
             'form' => $form->createView()
 		));
 	}
-
+    
 	/**
 	 * @ParamConverter("family", options={"mapping": {"family": "slug"}})
+     * @Security("has_role('ROLE_MEMBER')") * 
 	 */
 	public function addAction(Request $request, Family $family = null)
 	{
@@ -55,6 +57,9 @@ class TrickController extends Controller
     	));
 	}
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
 	public function editAction(Request $request, Trick $trick)
     {
         $form = $this->get('form.factory')->create(TrickType::class, $trick);
@@ -76,6 +81,9 @@ class TrickController extends Controller
         ));
     }
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
 	public function deleteAction(Request $request, Trick $trick)
 	{
 		$em = $this->getDoctrine()->getManager();
@@ -103,6 +111,7 @@ class TrickController extends Controller
     /**
      * @ParamConverter("picture", options={"mapping": {"picture_id": "id"}})
      * @ParamConverter("trick", options={"mapping": {"trick_id": "id"}})
+     * @Security("has_role('ROLE_MEMBER')")
      */
     public function removePictureFromTrickAction(Picture $picture, Trick $trick)
     {

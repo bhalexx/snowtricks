@@ -1,4 +1,11 @@
 services:
-#    st_user.example:
-#        class: ST\UserBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    st_user.form.registration:
+        class: ST\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: st_user_registration }
+
+    st_user.registration_listener:
+        class: ST\UserBundle\EventListener\RegistrationListener
+        arguments: ["@router"]
+        tags:
+            - { name: kernel.event_subscriber }

@@ -19,5 +19,6 @@
 
 {% block javascript %}
     {{ parent() }}
+    <script type="text/javascript" src="{{ asset('build/files.js') }}"></script>
     <script type="text/javascript" src="{{ asset('build/trick_form.js') }}"></script>
 {% endblock %}

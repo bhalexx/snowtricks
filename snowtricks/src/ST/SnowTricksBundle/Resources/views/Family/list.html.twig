@@ -4,6 +4,11 @@
   {{ parent() }} Groupes
 {% endblock %}
 
+{% block registerGrip %}
+	Consulter les groupes, c'est bien. Participer à leur évolution, c'est mieux !<br/>
+	Qu'attendez-vous pour vous inscrire ?
+{% endblock %}
+
 {% block body %}
 	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
         'Accueil' : path('st_snowtricks.homepage'),
@@ -15,9 +20,11 @@
 			<h2>
 				Liste des groupes <small>- {{ count }} groupe{% if count > 1 %}s{% endif %}</small>
 			</h2>
-			<a href="{{ path('st_snowtricks.family_add') }}" class="btn btn-primary">
-				<span class="fa fa-plus-circle"></span> Ajouter un groupe
-		 	</a>
+			{% if is_granted('ROLE_MEMBER') %}
+				<a href="{{ path('st_snowtricks.family_add') }}" class="btn btn-primary">
+					<span class="fa fa-plus-circle"></span> Ajouter un groupe
+			 	</a>
+			 {% endif %}
 		</div>
 		<div class="col-xs-12">
 			<table class="table table-responsive">

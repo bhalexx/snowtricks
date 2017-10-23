@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use ST\SnowTricksBundle\Entity\Family;
 use ST\SnowTricksBundle\Form\FamilyType;
 
@@ -28,6 +29,9 @@ class FamilyController extends Controller
         ));
     }
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function addAction(Request $request)
     {
     	$family = new Family();
@@ -50,6 +54,9 @@ class FamilyController extends Controller
     	));
     }
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function editAction(Request $request, Family $family)
     {
         $form = $this->get('form.factory')->create(FamilyType::class, $family);
@@ -70,6 +77,9 @@ class FamilyController extends Controller
         ));
     }
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function deleteAction(Request $request, Family $family)
     {
         $em = $this->getDoctrine()->getManager();
