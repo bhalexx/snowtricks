@@ -1,0 +1,75 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    <div class="col-xs-6">
+    	<div class="form-group">
+    		{{ form_label(form.firstname, "Prénom") }}
+    		{{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+    		{{ form_errors(form.firstname) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-6">
+    	<div class="form-group">
+    		{{ form_label(form.lastname, "Nom") }}
+    		{{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+    		{{ form_errors(form.lastname) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-12">
+    	<div class="form-group">
+    		{{ form_label(form.username, 'form.username'|trans) }}
+    		{{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+    		{{ form_errors(form.username) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-12">
+    	<div class="form-group">
+    		{{ form_label(form.email, 'form.email'|trans) }}
+    		{{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+    		{{ form_errors(form.email) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-6">
+    	<div class="form-group">
+    		{{ form_label(form.plainPassword.first, 'form.password'|trans) }}
+    		{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control' } }) }}
+	        {{ form_errors(form.plainPassword.first) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-6">
+    	<div class="form-group">
+    		{{ form_label(form.plainPassword.second, 'form.password_confirmation'|trans) }}
+    		{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' } }) }}
+	        {{ form_errors(form.plainPassword.second) }}
+    	</div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="file-container">
+        	{{ form_label(form.profilePictureFile, "Photo de profil") }}
+            {{ form_widget(form.profilePictureFile) }}
+            <div class="droparea">
+                <div class="message">
+                    <div>
+                        <span class="fa fa-picture-o"></span>
+                        <p>Glissez-déposez votre photo ici ou cliquez pour la sélectionner</p>
+                    </div>
+                </div>
+                <div class="list-pictures"></div>
+            </div>
+            {% if form_errors(form.profilePictureFile) %}
+                <label class="error" for="profilePicture">{{ form_errors(form.profilePictureFile) }}</label>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-xs-12 text-center">
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary" />
+    </div>
+{{ form_end(form) }}

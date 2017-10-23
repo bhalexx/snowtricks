@@ -1,5 +1,6 @@
 {
   "build/app.js": "/symfony/snowtricks/snowtricks/web/build/app.js",
+  "build/files.js": "/symfony/snowtricks/snowtricks/web/build/files.js",
   "build/fonts/glyphicons-halflings-regular.eot": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.f4769f9b.eot",
   "build/fonts/glyphicons-halflings-regular.ttf": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.e18bbf61.ttf",
   "build/fonts/glyphicons-halflings-regular.woff": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.fa277232.woff",

@@ -45,6 +45,12 @@ class Picture
      */
     private $file;
 
+    /**
+     * @var string
+     * 
+     */
+    private $temp;
+
 
     /**
      * Get id
@@ -114,8 +120,6 @@ class Picture
         return $this->file;
     }
 
-    private $temp;
-
     public function getAbsolutePath()
     {
         return $this->path === null
@@ -149,7 +153,7 @@ class Picture
     public function preUpload()
     {
         if ($this->getFile() !== null) {
-            // do whatever you want to generate a unique name
+            // Generate an unique name
             $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
         }

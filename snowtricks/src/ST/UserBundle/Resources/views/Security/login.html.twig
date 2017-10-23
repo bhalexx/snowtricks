@@ -1,0 +1,10 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block registerGrip %}
+	Pas encore membre ?<br/>
+	Inscrivez-vous pour faire partie de la communauté SnowTricks !
+{% endblock %}
+
+{% block fos_user_content %}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock fos_user_content %}

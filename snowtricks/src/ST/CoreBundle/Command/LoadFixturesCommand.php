@@ -132,6 +132,8 @@
 			//Browse users
 			foreach($users['Users'] as $userData) {
 				$user = new User();
+				$user->setFirstname($userData['firstname']);
+				$user->setLastname($userData['lastname']);
 				$user->setUsername($userData['username']);
 				$user->setPlainPassword($userData['password']);
 				$user->setEmail($userData['email']);

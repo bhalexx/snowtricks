@@ -106,7 +106,7 @@
 					{{ render(controller('STSnowTricksBundle:Comment:add', { 'request': app.request, 'trick': trick })) }}
 				{% else %}
 					<div class="well text-center">
-						<p>Vous devez être connecté(e) pour ajouter participer aux commentaires.</p>
+						<p>Vous devez être connecté(e) pour participer aux commentaires.</p>
 						<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">
 						 	S'inscrire
 						</a>

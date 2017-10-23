@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use ST\SnowTricksBundle\Entity\Trick;
 use ST\SnowTricksBundle\Entity\Comment;
 use ST\SnowTricksBundle\Form\CommentType;
@@ -45,6 +46,9 @@ class CommentController extends Controller
         throw new NotFoundHttpException();
 	}
 
+    /**
+     * @Security("has_role('ROLE_MEMBER')")
+     */
 	public function addAction(Request $request, Trick $trick)
 	{
 		$comment = new Comment();
