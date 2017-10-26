@@ -1,0 +1,3 @@
+st_user.remove_profile_picture:
+    path: /profile/remove-profile-picture
+    defaults: { _controller: STUserBundle:User:removeProfilePicture }

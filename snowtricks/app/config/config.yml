@@ -84,6 +84,9 @@ fos_user:
     registration:
         form:
             type: ST\UserBundle\Form\RegistrationType
+    profile:
+        form:
+            type: ST\UserBundle\Form\ProfileType
 
 # Stof\DoctrineExtensionsBundle configuration
 stof_doctrine_extensions:

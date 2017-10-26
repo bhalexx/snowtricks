@@ -9,3 +9,8 @@ services:
         arguments: ["@router"]
         tags:
             - { name: kernel.event_subscriber }
+
+    st_user.form.profile:
+        class: ST\UserBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: st_user_profile }

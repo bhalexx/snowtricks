@@ -65,30 +65,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set profilePicture
-     *
-     * @param string $profilePicture
-     *
-     * @return User
-     */
-    public function setProfilePicture($profilePicture)
-    {
-        $this->profilePicture = $profilePicture;
-
-        return $this;
-    }
-
-    /**
-     * Get profilePicture
-     *
-     * @return string
-     */
-    public function getProfilePicture()
-    {
-        return $this->profilePicture;
-    }
-
-    /**
      * Set firstname
      *
      * @param string $firstname
@@ -227,7 +203,7 @@ class User extends BaseUser
      */
     public function getWebPath()
     {
-        return $this->path === null
+        return $this->getProfilePicturePath() === null
             ? null
             : $this->getUploadDir().'/'.$this->getProfilePicturePath();
     }
@@ -279,6 +255,15 @@ class User extends BaseUser
         if ($file = $this->getProfilePictureAbsolutePath() && file_exists($this->getProfilePictureAbsolutePath())) {
             unlink($file);
         }
+    }
+
+    public function removeProfilePicture()
+    {
+        $profilePicture = $this->getProfilePictureAbsolutePath();
+        if (file_exists($profilePicture)) {
+            unlink($profilePicture);
+        }
+        $this->setProfilePicturePath(null);
     }
 
 }
