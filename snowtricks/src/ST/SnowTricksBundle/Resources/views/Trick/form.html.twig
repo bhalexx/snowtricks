@@ -32,7 +32,7 @@
                     <div class="picture" style="background-image: url({{ asset(picture.webPath) }})">
                         <div id="trick_remove_picture" class="hidden" data-path="{{ path('st_snowtricks.trick_remove_picture', { trick_id: trick.id, picture_id: picture.id }) }}"></div>
                         <div class="overlay">
-                            <span class="fa fa-close"></span>
+                            <span class="fa fa-trash"></span>
                         </div>
                     </div>
                 {% endfor %}

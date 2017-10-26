@@ -1,10 +1,21 @@
 {% for comment in comments %}
 	<div class="comment">
-		<b>{{ comment.author }}</b>
-		<span class="text-muted">
-			({{ comment.dateInsert|date('d/m/Y, H:i') }})
-		</span>
-		<p>{{ comment.content }}</p>
+		<div class="left">
+			{% if comment.author.webPath is not null %}
+				<div class="profilePicture" style="background-image: url('{{ asset(comment.author.webPath) }}')"></div>
+			{% else %}
+				<span class="fa fa-user avatar"></span>
+			{% endif %}
+		</div>
+		<div class="right">
+			<div class="head">
+				<b>{{ comment.author }}</b>
+				<span class="text-muted">
+					({{ comment.dateInsert|date('d/m/Y, H:i') }})
+				</span>
+			</div>
+			<p>{{ comment.content|nl2br }}</p>
+		</div>
 	</div>
 {% else %}
 	<p class="text-center">Aucun commentaire n'a encore été publié. N'hésitez pas à lancer le mouvement :)</p>
