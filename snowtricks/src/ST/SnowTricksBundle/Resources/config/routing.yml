@@ -69,3 +69,21 @@ st_snowtricks.trick_comments:
     requirements:
         trick: \d+
         page: \d+
+
+st_snowtricks.trick_comments.add:
+    path: /figures/{trick}/comments/add
+    defaults: { _controller: STSnowTricksBundle:Comment:add }
+    requirements:
+        trick: \d+
+
+st_snowtricks.trick_comments.edit:
+    path: /comment/edit/{id}
+    defaults: { _controller: STSnowTricksBundle:Comment:edit }
+    requirements:
+        id: \d+
+
+st_snowtricks.trick_comments.delete:
+    path: /comment/delete/{id}
+    defaults: { _controller: STSnowTricksBundle:Comment:delete }
+    requirements:
+        id: \d+
