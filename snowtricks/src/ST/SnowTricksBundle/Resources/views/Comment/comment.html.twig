@@ -1,0 +1,30 @@
+<div class="comment">
+	<div class="left">
+		{% if comment.author.webPath is not null %}
+			<div class="profilePicture" style="background-image: url('{{ asset(comment.author.webPath) }}')"></div>
+		{% else %}
+			<span class="fa fa-user avatar"></span>
+		{% endif %}
+	</div>
+	<div class="right">
+		<div class="head">
+			<b>{{ comment.author }}</b>
+			<span class="text-muted">
+				({{ comment.dateInsert|date('d/m/Y, H:i') }})
+			</span>
+		</div>
+		<p>{{ comment.content|nl2br }}</p>
+	</div>
+	{% if is_granted('ROLE_ADMIN') or (app.user and app.user.id == comment.author.id) %}
+		<div class="options">
+			<button data-path="{{ path('st_snowtricks.trick_comments.edit', { id: comment.id }) }}" class="btn btn-primary btn-edit">
+				<span class="fa fa-pencil default"></span>
+				<span class="fa fa-spinner fa-pulse fa-fw processing"></span>
+				 Modifier
+			</button>
+			<button data-path="{{ path('st_snowtricks.trick_comments.delete', { id: comment.id }) }}" class="btn btn-danger btn-delete">
+				<span class="fa fa-trash"></span> Supprimer
+			</button>
+		</div>
+	{% endif %}
+</div>

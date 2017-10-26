@@ -1,0 +1,16 @@
+{{ form_start(form, { attr: { 'class': 'form-edit-comment', action: path('st_snowtricks.trick_comments.edit', { id : comment.id }) } }) }}
+	<div class="form-group">
+    	{{ form_label(form.content, 'Modifier le commentaire') }}
+    	{{ form_widget(form.content, { 'attr': { 'class': 'form-control' } }) }}
+        {% if form_errors(form.content) %}
+    		<label class="error" for="content">{{ form_errors(form.content) }}</label>
+        {% endif %}
+    </div>
+    <div class="form-group">
+    	<button type="submit" class="btn btn-primary btn-edit">
+			<span class="fa fa-pencil default"></span>
+			<span class="fa fa-spinner fa-pulse fa-fw processing"></span>
+			 Modifier
+		</button>
+    </div>
+{{ form_end(form) }}
