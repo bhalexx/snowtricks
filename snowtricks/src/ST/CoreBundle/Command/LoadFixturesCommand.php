@@ -11,6 +11,7 @@
 	use ST\SnowTricksBundle\Entity\Picture;
 	use ST\SnowTricksBundle\Entity\Video;
 	use ST\SnowTricksBundle\Entity\Comment;
+	use ST\UserBundle\Entity\Group;
 	use ST\UserBundle\Entity\User;
 
 	class LoadFixturesCommand extends ContainerAwareCommand
@@ -95,8 +96,9 @@
 	            '',
 	        ]);
 
-	        //Load & create users from YAML file
-	        $this->loadUsers($output);
+	        //Load & create groups and users from YAML file
+	        $this->loadGroupsAndUsers($output);
+	        //Load & create families and tricks from YAML file
   			$this->loadFamiliesAndTricks($output);
 
   			//Feedback end
@@ -110,10 +112,10 @@
 		}
 
 		/**
-		 * Loads users
+		 * Loads groups and users
 		 * @param  OutputInterface $output
 		 */
-		public function loadUsers(OutputInterface $output)
+		public function loadGroupsAndUsers(OutputInterface $output)
 		{
 			//Load FOSUser user manipulator
 			$manipulator = $this->getContainer()->get('fos_user.util.user_manipulator');
@@ -127,40 +129,50 @@
 				'',
 			]);
 
-			//Parse YAML file
-			$users = Yaml::parse(file_get_contents(__DIR__.'/../DataFixtures/UserData.yml'));
-			
-			//Browse users
-			foreach($users['Users'] as $userData) {
-				$user = new User();
-				$user->setFirstname($userData['firstname']);
-				$user->setLastname($userData['lastname']);
-				$user->setUsername($userData['username']);
-				$user->setPlainPassword($userData['password']);
-				$user->setEmail($userData['email']);
-				$user->setEnabled(true);
+			//Parse userGroups YAML file
+			$userGroups = Yaml::parse(file_get_contents(__DIR__.'/../DataFixtures/UserGroupData.yml'));
+			$usersCount = 0;
 
-				$folder = __DIR__.'/../DataFixtures/Pictures/Users/';
-				$handle = opendir($folder);
+			//Browse userGroups
+			foreach ($userGroups['Groups'] as $groupData) {
+				$group = new Group();
+				$group->setName($groupData['name']);
 
-				//Upload profile picture
-				while(($file = readdir($handle)) !== false) {
-	                if ($file != '.' && $file != '..') {
-	                	if (preg_replace('/\\.[^.\\s]{3,4}$/', '', $file) === strtolower($userData['username'])) {
-	                		$user->setProfilePicturePath($file);
-	                		//Copy file in folder
-	        				copy($folder.'/'.$file, $this->profilePicturesFolder.'/'.$file);                		
-	                	}
-	                }
-	            }				
-				
-				foreach($userData['roles'] as $role) {
-					$user->addRole($role);
+				foreach ($groupData['roles'] as $role) {
+					$group->addRole($role);
 				}
-				
-				$manager->createUser($user);
 
-				$this->em->persist($user);
+				foreach($groupData['users'] as $userData) {
+					$user = new User();
+					$user->setFirstname($userData['firstname']);
+					$user->setLastname($userData['lastname']);
+					$user->setUsername($userData['username']);
+					$user->setPlainPassword($userData['password']);
+					$user->setEmail($userData['email']);
+					$user->setEnabled(true);
+
+					$folder = __DIR__.'/../DataFixtures/Pictures/Users/';
+					$handle = opendir($folder);
+
+					//Upload profile picture
+					while(($file = readdir($handle)) !== false) {
+		                if ($file != '.' && $file != '..') {
+		                	if (preg_replace('/\\.[^.\\s]{3,4}$/', '', $file) === strtolower($userData['username'])) {
+		                		$user->setProfilePicturePath($file);
+		                		//Copy file in folder
+		        				copy($folder.'/'.$file, $this->profilePicturesFolder.'/'.$file);                		
+		                	}
+		                }
+		            }	
+
+					$manager->createUser($user);
+					$this->em->persist($user);
+					$usersCount++;
+					
+					$group->addUser($user);
+				}
+
+				$this->em->persist($group);
 			}
 
 			$this->em->flush();
@@ -168,7 +180,7 @@
 			//Feedback end
 			$output->writeln([
 	            '',				
-				count($users['Users']).' users successfully created',
+				$usersCount.' users successfully created',
 				'',
 			]);
 		}
