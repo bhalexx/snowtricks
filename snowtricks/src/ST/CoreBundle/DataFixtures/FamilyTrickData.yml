@@ -17,6 +17,20 @@ Families:
                     - "Trop facile !"
                     - "C'est la base, mais faut déjà le faire..."
                     - "J'ai réussi !!!"
+                    - "Quelqu'un a une astuce pour réussir son mute ?"
+                    - "Qu'est-ce qui te pose problème ?"
+                    - "Tout..."
+                    - "Ah oui, c'est mal parti..."
+                    - "Moi j'y arrive trop bien !"
+                    - "Te la pète pas non plus..."
+                    - "La loose, je sais même pas faire un trick si basique"
+                    - "J'ose à peine imaginer ce que ça va donner pour les rotations..."
+                    - "Sinon il fait quel temps à Vars ?"
+                    - "Quel rapport ?"
+                    - "Ca ne répond pas à la question..."
+                    - "J'sais pas, moi j'suis à Tignes"
+                    - "Ok, et il fait quel temps alors à Tignes ?"
+                    - "Poudreuse comme on l'aime"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/JGaZ_qctLvA" frameborder="0" allowfullscreen></iframe>'
                     - '<iframe src="https://www.youtube.com/embed/hih9jIzOoRg?start=7" frameborder="0" allowfullscreen></iframe>'
@@ -28,6 +42,9 @@ Families:
                 comments:
                     - "Les photos sont canons"
                     - "C'est clair"
+                    - "Trop beau !"
+                    - "J'adore ce trick !!!"
+                    - "La classe quand même"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/KEdFwJ4SWq4" frameborder="0" allowfullscreen></iframe>'
                     - '<iframe src="https://player.vimeo.com/video/23958282" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
@@ -38,6 +55,14 @@ Families:
                 description: "Saisie de la carre frontside de la planche, entre les deux pieds, avec la main arrière"
                 comments:
                     - "J'ai mis tellement de temps pour arriver à la faire celle-là..."
+                    - "Oh c'est pas très compliqué, une fois que t'as le trick ;)"
+                    - "J'adore, on se sent libre"
+                    - "La montagne ça nous gagne"
+                    - "C'est génial !"
+                    - "J'adoooooooooore"
+                    - "Dommage qu'il n'y ait qu'une seule vidéo"
+                    - "Rien ne t'empêche d'en ajouter"
+                    - "Oui c'est vrai ça"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/6QsLhWzXGu0?start=7" frameborder="0" allowfullscreen></iframe>'
             
@@ -49,6 +74,8 @@ Families:
                     - "C tro facil 1 foi ke tu la fai le tail et noze son tro izy"
                     - "Tu pourrais faire un effort, le langage SMS c'est has been"
                     - "C'est clair..."
+                    - "Salut tout le monde !!!"
+                    - "Oui... ?"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/f9FjhCt_w2U" frameborder="0" allowfullscreen></iframe>'
             
@@ -58,6 +85,8 @@ Families:
                 description: "Saisie de la partie arrière de la planche, avec la main arrière"
                 comments:
                     - "Un de mes tricks préférés !"
+                    - "Oooooooh"
+                    - "Peu de commentaires par ici..."
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/id8VKl9RVQw" frameborder="0" allowfullscreen></iframe>'
             
@@ -69,6 +98,8 @@ Families:
                     - "Jamais compris pourquoi elle s'appelait comme ça, celle-là..."
                     - "Peut-être parce qu'elle est facile, donc fingers in the nose ?"
                     - "Ca vole haut par ici..."
+                    - "Je suis fan !"
+                    - "Moi ça m'a fait rire :)"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/y2MHu0mbzQw" frameborder="0" allowfullscreen></iframe>'
                     - '<iframe src="https://www.youtube.com/embed/M-W7Pmo-YMY" frameborder="0" allowfullscreen></iframe>'
@@ -79,6 +110,8 @@ Families:
                 description: "Aussi appelée Japan Air, saisie de l'avant de la planche, avec la main avant, du côté de la carre frontside"                
                 comments:
                     - "J'adore"
+                    - "C'est clair, y a de quoi !"
+                    - "C'est génial quand même tout ce qu'on peut faire !"
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/jH76540wSqU" frameborder="0" allowfullscreen></iframe>'
             
@@ -87,7 +120,9 @@ Families:
                 slug: "seat-belt"
                 description: "Saisie du carre frontside à l'arrière avec la main avant"
                 comments:
-                    - "Toujours pas réussi à la faire celle-là :("  
+                    - "Toujours pas réussi à la faire celle-là :("
+                    - "Ca va venir, suffit de s'entraîner"
+                    - "Oui, mais moi je suis dans le plâtre, je pourrai pas m'entraîner avant un moment..."
                 videos:
                     - '<iframe src="https://www.youtube.com/embed/4vGEOYNGi_c" frameborder="0" allowfullscreen></iframe>'              
                 

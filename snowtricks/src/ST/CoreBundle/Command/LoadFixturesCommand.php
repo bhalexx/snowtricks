@@ -17,6 +17,7 @@
 	{
 		private $em;
 		private $picturesFolder = __DIR__.'/../../../../web/tricks';
+		private $profilePicturesFolder = __DIR__.'/../../../../web/users';
 
 		protected function configure()
 		{
@@ -138,6 +139,20 @@
 				$user->setPlainPassword($userData['password']);
 				$user->setEmail($userData['email']);
 				$user->setEnabled(true);
+
+				$folder = __DIR__.'/../DataFixtures/Pictures/Users/';
+				$handle = opendir($folder);
+
+				//Upload profile picture
+				while(($file = readdir($handle)) !== false) {
+	                if ($file != '.' && $file != '..') {
+	                	if (preg_replace('/\\.[^.\\s]{3,4}$/', '', $file) === strtolower($userData['username'])) {
+	                		$user->setProfilePicturePath($file);
+	                		//Copy file in folder
+	        				copy($folder.'/'.$file, $this->profilePicturesFolder.'/'.$file);                		
+	                	}
+	                }
+	            }				
 				
 				foreach($userData['roles'] as $role) {
 					$user->addRole($role);
@@ -207,7 +222,7 @@
 							$method = 'set'.ucfirst($key);
 							$trick->$method($value);
 						}
-						$trick->setAuthor($users[rand(0, (count($users)-1))]);
+						$trick->setAuthor($users[rand(0, (count($users) - 1))]);
 						$trick->setFamily($family);
 						
 						//Upload trick's pictures
