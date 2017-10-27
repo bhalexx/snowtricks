@@ -14,15 +14,15 @@
 
 	<h2>Supprimer le groupe {{ family.name }}</h2>
 	<p>
-		Attention, cette action est irréversible et entraîne la suppression de toutes les figures associées à ce groupe.
+		Attention, cette action est irréversible et entraîne la suppression de toutes les figures ({{ family.tricks|length }}) associées à ce groupe.
 	</p>
 
 	<form action="{{ path('st_snowtricks.family_delete', { 'id': family.id, slug: family.slug }) }}" method="post">
         <a href="{{ path('st_snowtricks.family_view', { 'id': family.id, 'slug': family.slug }) }}" class="btn btn-default">
-            <span>ANNULER</span>
+            <span class="fa fa-hand-o-left"></span> Annuler
         </a>
         <button type="submit" class="btn btn-danger">
-            <span>SUPPRIMER</span>
+            <span class="fa fa-trash"></span> Supprimer
         </button>
         {# Generates CSRF token #}
         {{ form_rest(form) }}

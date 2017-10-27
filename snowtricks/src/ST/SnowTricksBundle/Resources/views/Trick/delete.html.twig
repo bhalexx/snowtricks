@@ -20,10 +20,10 @@
 
 	<form action="{{ path('st_snowtricks.trick_delete', { 'id': trick.id, slug: trick.slug }) }}" method="post">
         <a href="{{ path('st_snowtricks.trick_view', { 'id': trick.id, 'slug': trick.slug }) }}" class="btn btn-default">
-            <span>ANNULER</span>
+            <span class="fa fa-hand-o-left"></span> Annuler
         </a>
         <button type="submit" class="btn btn-danger">
-            <span>SUPPRIMER</span>
+            <span class="fa fa-trash"></span> Supprimer
         </button>
         {# Generates CSRF token #}
         {{ form_rest(form) }}

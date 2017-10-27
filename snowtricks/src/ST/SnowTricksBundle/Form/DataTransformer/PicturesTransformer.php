@@ -4,8 +4,8 @@
 
     use Symfony\Component\Form\DataTransformerInterface;
     use Symfony\Component\Form\Exception\TransformationFailedException;
-    use Symfony\Component\HttpFoundation\File\UploadedFile;
     use ST\SnowTricksBundle\Entity\Picture;
+    use Symfony\Component\HttpFoundation\File\File;
 
     class PicturesTransformer implements DataTransformerInterface
     {
@@ -17,7 +17,13 @@
          */
         public function transform($pictures)
         {
-            return $pictures;
+            $photos = [];
+            foreach ($pictures as $picture) {
+                $photo = new File($picture->getWebPath());
+                $photos[] = $photo;
+            }
+            return $photos;
+            // return $pictures;
         }
 
         /**
@@ -28,12 +34,17 @@
          */
         public function reverseTransform($pictures)
         {
-            $photos = [];
-            foreach ($pictures as $picture) {
-                $photo = new Picture();
-                $photo->setFile($picture);
-                $photos[] = $photo;
+            dump($pictures);
+            if (count($pictures) > 0) {
+                $photos = [];
+                foreach ($pictures as $picture) {
+                    $photo = new Picture();
+                    $photo->setFile($picture);
+                    $photos[] = $photo;
+                }
+                return $photos;
+            } else {
+                return $pictures;
             }
-            return $photos;
         }
     }

@@ -26,9 +26,12 @@
 	<div class="row">
 		<div class="col-xs-12 title">
 			<!-- NAME -->
-			<h2>
-				{{ trick.name }} <small>- {{ trick.family.name }}</small>				
-			</h2>
+			<div>
+				<h2>
+					{{ trick.name }} <small>- {{ trick.family.name }}</small>				
+				</h2>
+				<i class="text-muted">Créée par <b>{{ trick.author }}</b>, le {{ trick.dateInsert|date('d/m/Y à H:i') }}</i>
+			</div>
 			{% if is_granted('ROLE_MEMBER') %}
 				<div class="options">
 					<a href="{{ path('st_snowtricks.trick_edit', { id: trick.id, slug: trick.slug }) }}" class="btn btn-primary">

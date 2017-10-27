@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ST\SnowTricksBundle\Entity\Trick;
 
@@ -28,6 +29,7 @@ class Family
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Le nom de la famille ne peut être vide.")
      */
     private $name;
 
@@ -43,6 +45,7 @@ class Family
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank(message="Décrivez la famille en quelques mots.")
      */
     private $description;
 

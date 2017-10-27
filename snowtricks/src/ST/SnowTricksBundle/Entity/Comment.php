@@ -3,6 +3,7 @@
 namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use ST\UserBundle\Entity\User;
 use ST\SnowTricksBundle\Entity\Trick;
 
@@ -42,6 +43,8 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=255)
+     * 
+     * @Assert\NotBlank(message="Vous n'avez rien à dire de cette figure ?")
      */
     private $content;
 

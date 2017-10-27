@@ -19,9 +19,11 @@
 	<div class="row">
 		<!-- NAME & OPTIONS -->
 		<div class="col-xs-12 title">
-			<h2>
-				# {{ family.name }} <small>- {{ count }} figure{% if count > 1 %}s{% endif %}</small>
-			</h2>
+			<div>
+				<h2>
+					# {{ family.name }} <small>- {{ count }} figure{% if count > 1 %}s{% endif %}</small>
+				</h2>
+			</div>
 			{% if is_granted('ROLE_MEMBER') %}
 				<div class="options">
 					<a href="{{ path('st_snowtricks.trick_add_in', { family: family.slug }) }}" class="btn btn-primary">
