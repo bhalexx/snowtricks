@@ -34,17 +34,12 @@
          */
         public function reverseTransform($pictures)
         {
-            dump($pictures);
-            if (count($pictures) > 0) {
-                $photos = [];
-                foreach ($pictures as $picture) {
-                    $photo = new Picture();
-                    $photo->setFile($picture);
-                    $photos[] = $photo;
-                }
-                return $photos;
-            } else {
-                return $pictures;
+            $photos = [];
+            foreach ($pictures as $picture) {
+                $photo = new Picture();
+                $photo->setFile($picture);
+                $photos[] = $photo;
             }
+            return $photos;
         }
     }
