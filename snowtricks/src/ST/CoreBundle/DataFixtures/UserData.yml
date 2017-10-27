@@ -2,7 +2,7 @@ Users:
     User1:
         firstname: "Alex"
         lastname: "Duda"
-        username: "bhalexx"
+        username: "Bhalexx"
         password: "password"
         email: "bhalexx@gmail.com"
         roles: 
@@ -36,8 +36,17 @@ Users:
     User5:
         firstname: "John"
         lastname: "Doe"
-        username: "John Doe"
+        username: "Johnny"
         password: "password"
         email: "john.doe@gmail.com"
         roles: 
           - "ROLE_MEMBER"
+
+    User6:
+        firstname: "Snow"
+        lastname: "Tricks"
+        username: "SnowTricks"
+        password: "password"
+        email: "contact@snowtricks.com"
+        roles:
+            - "ROLE_ADMIN"
