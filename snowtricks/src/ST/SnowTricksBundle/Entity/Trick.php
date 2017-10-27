@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ST\SnowTricksBundle\Entity\Picture;
 use ST\SnowTricksBundle\Entity\Video;
@@ -31,6 +32,8 @@ class Trick
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * 
+     * @Assert\NotBlank(message="Le nom de la figure ne peut être vide.")
      */
     private $name;
 
@@ -46,6 +49,8 @@ class Trick
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
+     * 
+     * @Assert\NotBlank(message="Décrivez la figure en quelques mots.")
      */
     private $description;
 
@@ -53,6 +58,9 @@ class Trick
      * @var array
      *
      * @ORM\OneToMany(targetEntity="ST\SnowTricksBundle\Entity\Picture", cascade={"persist", "remove"}, mappedBy="trick")
+     * 
+     * ###@Assert\Valid()
+     * ###@Assert\Count(min="1", minMessage="Merci d'ajouter minimum 1 image à la figure")
      */
     private $pictures;
 
@@ -81,6 +89,8 @@ class Trick
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Family", cascade={"persist"}, inversedBy="tricks")
+     *
+     * @Assert\NotNull(message="Un famille ne peut être orpheline. Si le groupe auquel elle appartient n'existe pas, vous pouvez le créer.")
      */
     private $family;
 

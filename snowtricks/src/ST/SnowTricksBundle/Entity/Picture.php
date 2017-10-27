@@ -4,6 +4,7 @@ namespace ST\SnowTricksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 use ST\SnowTricksBundle\Entity\Trick;
 
 /**
@@ -42,6 +43,7 @@ class Picture
     /**
      * @var string
      * 
+     * @Assert\Image()
      */
     private $file;
 
