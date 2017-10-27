@@ -6,7 +6,7 @@ services:
 
     st_user.registration_listener:
         class: ST\UserBundle\EventListener\RegistrationListener
-        arguments: ["@router"]
+        arguments: ["@router", "@doctrine.orm.entity_manager"]
         tags:
             - { name: kernel.event_subscriber }
 

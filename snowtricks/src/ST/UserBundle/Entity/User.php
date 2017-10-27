@@ -3,6 +3,7 @@
 namespace ST\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -53,6 +54,21 @@ class User extends BaseUser
      * @ORM\Column(name="profile_picture", type="string", length=255, nullable=true)
      */
     protected $profilePicturePath;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ST\UserBundle\Entity\Group")
+     * @ORM\JoinTable(name="st_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
+
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+    }
 
     /**
      * Get id

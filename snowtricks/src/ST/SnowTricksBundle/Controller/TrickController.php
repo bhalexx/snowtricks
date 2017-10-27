@@ -13,7 +13,6 @@ use ST\SnowTricksBundle\Entity\Comment;
 use ST\SnowTricksBundle\Entity\Picture;
 use ST\SnowTricksBundle\Form\TrickType;
 use ST\SnowTricksBundle\Form\CommentType;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class TrickController extends Controller
 {

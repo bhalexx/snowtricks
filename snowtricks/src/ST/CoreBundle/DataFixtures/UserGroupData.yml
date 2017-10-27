@@ -1,0 +1,46 @@
+Groups:
+    Group1:
+        name: admin
+        roles: ['ROLE_ADMIN']
+        users:
+            User1:
+                firstname: "Snow"
+                lastname: "Tricks"
+                username: "SnowTricks"
+                password: "password"
+                email: "contact@snowtricks.com"
+
+    Group2:
+        name: member
+        roles: ['ROLE_MEMBER']
+        users:
+            User1:
+                firstname: "Alex"
+                lastname: "Duda"
+                username: "Bhalexx"
+                password: "password"
+                email: "bhalexx@gmail.com"
+            User2:
+                firstname: "Bhilie"
+                lastname: "Joe"
+                username: "Billie"
+                password: "password"
+                email: "billie@gmail.com"
+            User3:
+                firstname: "Bobbie"
+                lastname: "Fatt"
+                username: "Bob"
+                password: "password"
+                email: "bobbie@gmail.com"
+            User4:
+                firstname: "John"
+                lastname: "Doe"
+                username: "Johnny"
+                password: "password"
+                email: "john.doe@gmail.com"
+            User5:
+                firstname: "Lewis"
+                lastname: "Darkdark"
+                username: "Lewis"
+                password: "password"
+                email: "lewis@gmail.com"
