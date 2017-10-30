@@ -95,3 +95,9 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+# Ivory CKEditor configuration
+ivory_ck_editor:
+    configs:
+        my_config:
+            toolbar: basic
