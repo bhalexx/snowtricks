@@ -1,16 +1,24 @@
 {% extends "STCoreBundle::layout.html.twig" %}
 
 {% block title %}
-  {{ parent() }} Modifier 
+  {{ parent() }} Modifier {{ user.username }} 
 {% endblock %}
 
 {% block body %}
 	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
         'Accueil' : path('st_snowtricks.homepage'),
         'Utilisateurs' : path('st_user.users'),
-        (user.username): '',
+        (user.username): path('st_user.users.view_profile', { id: user.id }),
         'Modifier': path('st_user.users.edit_user', { id: user.id })
     }} %}
+
+    <div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Modifier l'utilisateur {{ user.username }}
+            </h2>
+        </div>
+    </div>
 
     {{ form_start(form) }}   
     	{% include "STUserBundle:templates:edit_form.html.twig" with { 'user': user, 'passwordRequired': false, 'withGroups': true } %}

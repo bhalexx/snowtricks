@@ -11,7 +11,7 @@
 			{% for user in users %}
 				<tr>
 					<td>
-						{{ user.username }}
+						<a href="{{ path('st_user.users.view_profile', { id: user.id }) }}">{{ user.username }}</a>
 					</td>
 					<td>
 						{{ user.email }}

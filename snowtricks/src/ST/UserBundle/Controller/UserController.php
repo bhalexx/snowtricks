@@ -110,8 +110,15 @@ class UserController extends Controller
      */
 	public function viewAction(User $user)
 	{
+        $em = $this->getDoctrine()->getManager();
+
+        $nbComments = count($em->getRepository('STSnowTricksBundle:Comment')->findByAuthor($user));
+        $nbTricks = count($em->getRepository('STSnowTricksBundle:Trick')->findByAuthor($user));
+
 		return $this->render('STUserBundle:User:view.html.twig', array(
-			'user' => $user
+			'user' => $user,
+            'nbComments' => $nbComments,
+            'nbTricks' => $nbTricks
 		));
 	}
 

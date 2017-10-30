@@ -13,19 +13,29 @@
         ('Supprimer') : path('st_snowtricks.trick_delete', { id : trick.id, slug : trick.slug })
     }} %}
 
-	<h2>Supprimer la figure {{ trick.name }}</h2>
-	<p>
-		Attention, cette action est irréversible et entraîne la suppression de toutes les images et vidéos associées à cette figure.
-	</p>
+    <div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Supprimer la figure "{{ trick.name }}"
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+        	<p>
+        		Attention, cette action est irréversible et entraîne la suppression de toutes les images et vidéos associées à cette figure.
+        	</p>
 
-	<form action="{{ path('st_snowtricks.trick_delete', { 'id': trick.id, slug: trick.slug }) }}" method="post">
-        <a href="{{ path('st_snowtricks.trick_view', { 'id': trick.id, 'slug': trick.slug }) }}" class="btn btn-default">
-            <span class="fa fa-hand-o-left"></span> Annuler
-        </a>
-        <button type="submit" class="btn btn-danger">
-            <span class="fa fa-trash"></span> Supprimer
-        </button>
-        {# Generates CSRF token #}
-        {{ form_rest(form) }}
-    </form>
+        	<form action="{{ path('st_snowtricks.trick_delete', { 'id': trick.id, slug: trick.slug }) }}" method="post">
+                <a href="{{ path('st_snowtricks.trick_view', { 'id': trick.id, 'slug': trick.slug }) }}" class="btn btn-default">
+                    <span class="fa fa-hand-o-left"></span> Annuler
+                </a>
+                <button type="submit" class="btn btn-danger">
+                    <span class="fa fa-trash"></span> Supprimer
+                </button>
+                {# Generates CSRF token #}
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
 {% endblock %}

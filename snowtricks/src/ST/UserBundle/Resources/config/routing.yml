@@ -1,9 +1,55 @@
+# Profile
+fos_user_profile_show:
+    path:  /profil
+    defaults: { _controller: FOSUserBundle:Profile:show }
+
+st_user.users.view_profile:
+    path: /profil/{id}
+    defaults: { _controller: STUserBundle:User:view }
+    requirements:
+        id: \d+
+
+fos_user_profile_edit:
+    path: /profil/modifier-profil
+    defaults: { _controller: FOSUserBundle:Profile:edit }
+
+fos_user_change_password:
+    path: /profil/modifier-mot-de-passe
+    defaults: { _controller: FOSUserBundle:ChangePassword:changePassword }
+
 st_user.remove_profile_picture:
     path: /profile/remove-profile-picture/{id}
     defaults: { _controller: STUserBundle:User:removeProfilePicture }
     requirements:
         id: \d+
 
+st_user.users.user_delete_account:
+    path: /profil/supprimer-mon-compte
+    defaults: { _controller: STUserBundle:User:deleteMyAccount }
+
+# Register
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /inscription
+
+# Login
+fos_user_security_login:
+    path: /connexion
+    defaults: { _controller: FOSUserBundle:Security:login }
+    requirements:
+        _method: GET|POST
+
+fos_user_security_check:
+    path: /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    path: /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+    requirements:
+        _method: GET|POST
+
+# Users management
 st_user.users:
     path: /utilisateurs
     defaults: { _controller: STUserBundle:User:index }
@@ -21,15 +67,5 @@ st_user.users.edit_user:
 st_user.users.delete_user:
     path: /utilisateurs/{id}/supprimer
     defaults: { _controller: STUserBundle:User:delete }
-    requirements:
-        id: \d+
-
-st_user.users.user_delete_account:
-    path: /profil/supprimer-mon-compte
-    defaults: { _controller: STUserBundle:User:deleteMyAccount }
-
-st_user.users.view_profile:
-    path: /profil/{id}
-    defaults: { _controller: STUserBundle:User:view }
     requirements:
         id: \d+

@@ -23,6 +23,7 @@
 					'label' => 'Photo de profil',
 					'required' => false
 				))
+				->remove('current_password')
 			;
 		}
 

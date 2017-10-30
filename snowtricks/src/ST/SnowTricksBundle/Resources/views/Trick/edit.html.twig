@@ -13,7 +13,13 @@
         ('Modifier') : path('st_snowtricks.trick_edit', { id : trick.id, slug : trick.slug })
     }} %}
 
-	<h2>Modifier la figure {{ trick.name }}</h2>
+    <div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Modifier la figure "{{ trick.name }}"
+            </h2>
+        </div>
+    </div>
 	{{ include("STSnowTricksBundle:Trick:form.html.twig") }}
 {% endblock %}
 

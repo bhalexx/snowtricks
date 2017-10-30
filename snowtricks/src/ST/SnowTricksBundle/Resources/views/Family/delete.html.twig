@@ -12,19 +12,29 @@
         ('Supprimer') : path('st_snowtricks.family_delete', { id : family.id, slug : family.slug })
     }} %}
 
-	<h2>Supprimer le groupe {{ family.name }}</h2>
-	<p>
-		Attention, cette action est irréversible et entraîne la suppression de toutes les figures ({{ family.tricks|length }}) associées à ce groupe.
-	</p>
+    <div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Supprimer le groupe "{{ family.name }}"
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+        	<p>
+        		Attention, cette action est irréversible et entraîne la suppression de toutes les figures ({{ family.tricks|length }}) associées à ce groupe.
+        	</p>
 
-	<form action="{{ path('st_snowtricks.family_delete', { 'id': family.id, slug: family.slug }) }}" method="post">
-        <a href="{{ path('st_snowtricks.family_view', { 'id': family.id, 'slug': family.slug }) }}" class="btn btn-default">
-            <span class="fa fa-hand-o-left"></span> Annuler
-        </a>
-        <button type="submit" class="btn btn-danger">
-            <span class="fa fa-trash"></span> Supprimer
-        </button>
-        {# Generates CSRF token #}
-        {{ form_rest(form) }}
-    </form>
+        	<form action="{{ path('st_snowtricks.family_delete', { 'id': family.id, slug: family.slug }) }}" method="post">
+                <a href="{{ path('st_snowtricks.family_view', { 'id': family.id, 'slug': family.slug }) }}" class="btn btn-default">
+                    <span class="fa fa-hand-o-left"></span> Annuler
+                </a>
+                <button type="submit" class="btn btn-danger">
+                    <span class="fa fa-trash"></span> Supprimer
+                </button>
+                {# Generates CSRF token #}
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
 {% endblock %}
