@@ -1,4 +1,5 @@
 services:
+    # Trick post update event
     st_snowtricks.event.trick_post_update:
         class: ST\SnowTricksBundle\DoctrineListener\TrickPostUpdate
         tags:

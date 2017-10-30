@@ -16,6 +16,7 @@ This project uses:
 	- Twig_Extensions_Extension_Text for truncate functionality
 - [Symfony/Yaml](https://github.com/symfony/yaml) to dump YAML files - used to parse fixtures YAML files
 - [IvoryCKEditorBundle](https://github.com/egeloen/IvoryCKEditorBundle) for CKEditor integration
+
 Those dependencies are included in composer.json.
 
 This project also uses:
@@ -24,6 +25,7 @@ This project also uses:
 - [sass-loader](https://github.com/webpack-contrib/sass-loader) to compile your SCSS files to CSS
 - [jQuery](https://github.com/jquery/jquery) autoloaded by WebPack Encore
 - [lightgallery](https://github.com/sachinchoolur/lightGallery) for trick pictures gallery
+
 Those dependencies are included in package.json
 
 ## Installation
