@@ -7,6 +7,7 @@
     use Symfony\Component\Form\Extension\Core\Type\TextType;
     use Symfony\Component\Form\Extension\Core\Type\TextareaType;
     use Symfony\Component\OptionsResolver\OptionsResolver;
+    use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 	class FamilyType extends AbstractType
 	{
@@ -16,9 +17,9 @@
 				->add('name', TextType::class, array(
 					'label' => 'Nom'
 				))
-				->add('description', TextareaType::class, array(
+				->add('description', CKEditorType::class, array(
 					'label' => 'Description',
-					'attr' => array('class' => 'ckeditor')
+    				'config_name' => 'my_config',
 				))
 			;
 		}

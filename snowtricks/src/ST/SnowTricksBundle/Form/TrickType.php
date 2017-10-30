@@ -10,6 +10,7 @@
     use Symfony\Component\Form\Extension\Core\Type\CollectionType;
     use Symfony\Component\OptionsResolver\OptionsResolver;
 	use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+    use Ivory\CKEditorBundle\Form\Type\CKEditorType;
     use ST\SnowTricksBundle\Form\DataTransformer\PicturesTransformer;
     use ST\SnowTricksBundle\Form\PictureType;
     use ST\SnowTricksBundle\Form\VideoType;
@@ -25,8 +26,9 @@
 				->add('name', TextType::class, array(
 					'label' => 'Nom'
 				))
-				->add('description', TextareaType::class, array(
-					'label' => 'Description'
+				->add('description', CKEditorType::class, array(
+					'label' => 'Description',
+    				'config_name' => 'my_config',
 				))
 				->add('family', EntityType::class, array(
 					'label' => 'Groupe',
