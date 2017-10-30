@@ -31,25 +31,13 @@ Encore
     // allow sass/scss files to be processed
     .enableSassLoader()
 
-    // allow legacy applications to use $/jQuery as a global variable
-    
+    // allow legacy applications to use $/jQuery as a global variable    
     .autoProvidejQuery()
-
-    // this creates a 'vendor.js' file with jquery and the bootstrap JS module
-    // these modules will *not* be included in page1.js or page2.js anymore
-    // .createSharedEntry('vendor', [
-    //     'jquery',
-    //     'bootstrap',
-
-    //     // you can also extract CSS - this will create a 'vendor.css' file
-    //     // this CSS will *not* be included in page1.css or page2.css anymore
-    //     'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
-    // ])
 
     .enableSourceMaps(!Encore.isProduction())
 
     // create hashed filenames (e.g. app.abc123.css)
-    // .enableVersioning()
+    .enableVersioning(Encore.isProduction())
 ;
 
 // export the final configuration

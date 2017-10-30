@@ -34,15 +34,23 @@ Those dependencies are included in package.json
 3. Execute command line `php bin/console assets:install web` to install Ivory CKEditor assets.
 4. Then execute command line `npm install` to install node modules for assets management.
 5. Rename `snowtricks/app/config/parameters.yml.dist` in `snowtricks/app/config/parameters.dist` and edit database parameters with yours.
-6. Execute command line `php bin/console doctrine:database:create`.
-7. Now that your database is created, you have to create tables with command line `php bin/console doctrine:schema:update --force`.
+
 ##### Your project is ready to be run!
 ##### I can hear you saying: "Wait... I don't want to create families and tricks one by one...". Don't worry!
-8. Run `php bin/console snowtricks:fixtures:load` and wait until it's done. Now you have a website full of families and tricks!
-9. Enjoy!
 
-<!-- ## Structure
+6. Run `php bin/console snowtricks:fixtures:load` and wait until it's done. Now you have a website full of families and tricks!
+7. Enjoy!
+
+## Structure
 This Symfony project contains 3 bundles:
-- CoreBundle
-- SnowTricksBundle
-- UserBundle -->
+- CoreBundle - contains global things such as: 
+	- command line instructions
+	- data fixtures
+	- form extensions (to add an icon on button/label on form building)
+	- Twig Date service (to set timezone to 'Europe/Paris' globally)
+	- HTML layout
+	- templates used globally (such as breadcrumb)
+- SnowTricksBundle - contains everything about tricks, families and comments.
+- UserBundle - contains everything about user management
+
+Assets are located in `app\Resources\assets`, and minified and built by Encore in `web\build`. To add/edit or any other configuration customization, look at `webpack.config.js`!
