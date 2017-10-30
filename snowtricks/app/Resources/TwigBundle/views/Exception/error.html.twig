@@ -1,0 +1,23 @@
+{% extends 'STCoreBundle::layout.html.twig' %}
+                  
+{% block title %}
+{{ parent() }} Erreur 404
+{% endblock %}
+
+{% block body %}
+  	<div class="text-center">
+  		<span class="fa fa-exclamation-triangle fa-5x"></span>
+    	<p class="h1">
+    		Oups !
+    	</p>
+    	<p class="h3">
+    		Il semble qu'il n'y ait pas assez de neige par ici... <span class="fa fa-frown-o"></span><br/> 
+    		Ou peut-être n'avez-vous pas encore le niveau pour cette piste ?<br/>
+    		Revenez plus tard, nous avons démarré les canons à neige.
+    	</p>
+
+    	<a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-primary btn-lg">
+    		Ramenez-moi à l'accueil du site !
+    	</a>
+  	</div>
+{% endblock %}
