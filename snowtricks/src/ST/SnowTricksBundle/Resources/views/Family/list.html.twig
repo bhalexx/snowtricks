@@ -31,7 +31,7 @@
 				<thead>
 					<tr>
 						<th>Nom</th>
-						<th>Nombre de figures</th>
+						<th class="hidden-xs">Nombre de figures</th>
 						<th>Options</th>
 					</tr>
 				</thead>
@@ -40,10 +40,10 @@
 						<tr>
 							<td>
 								<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}">
-									{{ family.name }}
+									{{ family.name }} <span class="hidden-sm hidden-md hidden-lg">({{ family.tricks|length }})</span>
 								</a>
 							</td>
-							<td>{{ family.tricks|length }}</td>
+							<td class="hidden-xs">{{ family.tricks|length }}</td>
 							<td>
 								<a href="{{ path('st_snowtricks.family_view', { id: family.id, slug: family.slug }) }}" class="btn btn-primary">
 									<span class="fa fa-eye"></span> <span class="hidden-xs">Voir</span>
