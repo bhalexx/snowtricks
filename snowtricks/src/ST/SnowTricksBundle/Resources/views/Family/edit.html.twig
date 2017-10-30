@@ -12,6 +12,12 @@
         ('Modifier') : path('st_snowtricks.family_edit', { id : family.id, slug : family.slug })
     }} %}
 
-	<h2>Modifier {{ family.name }}</h2>
+	<div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Modifier le groupe "{{ family.name }}"
+            </h2>
+        </div>
+    </div>
 	{{ include("STSnowTricksBundle:Family:form.html.twig") }}
 {% endblock %}

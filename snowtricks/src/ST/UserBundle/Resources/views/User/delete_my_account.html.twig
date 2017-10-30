@@ -12,20 +12,30 @@
         'Supprimer': path('st_user.users.user_delete_account')
     }} %}
 
-    <h2>Supprimer mon compte</h2>
-	<p>
-        Nous sommes tristes de vous voir partir, {{ user.username }} ! <span class="fa fa-frown-o"></span><br/>
-		Attention, cette action est irréversible et entraîne la suppression de tous vos commentaires. Vous ne pourrez plus participer à la communauté SnowTricks.
-	</p>
+    <div class="row">
+        <div class="col-xs-12 title">
+            <h2>
+                Supprimer mon compte
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+        	<p>
+                Nous sommes tristes de vous voir partir, {{ user.username }} ! <span class="fa fa-frown-o"></span><br/>
+        		Attention, cette action est irréversible et entraîne la suppression de tous vos commentaires. Vous ne pourrez plus participer à la communauté SnowTricks.
+        	</p>
 
-	<form action="{{ path('st_user.users.user_delete_account') }}" method="post">
-        <a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-default">
-            <span class="fa fa-hand-o-left"></span> Annuler
-        </a>
-        <button type="submit" class="btn btn-danger">
-            <span class="fa fa-trash"></span> Supprimer
-        </button>
-        {# Generates CSRF token #}
-        {{ form_rest(form) }}
-    </form>
+        	<form action="{{ path('st_user.users.user_delete_account') }}" method="post">
+                <a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-default">
+                    <span class="fa fa-hand-o-left"></span> Annuler
+                </a>
+                <button type="submit" class="btn btn-danger">
+                    <span class="fa fa-trash"></span> Supprimer
+                </button>
+                {# Generates CSRF token #}
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
 {% endblock %}

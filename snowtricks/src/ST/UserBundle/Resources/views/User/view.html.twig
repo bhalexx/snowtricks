@@ -11,5 +11,13 @@
 	        (user.username) : ''
 	    }} %}
 		{% include "STUserBundle:templates:profile_show.html.twig" with { 'user': user } %}
+		<div class="col-xs-12">			
+			<p>
+				Nombre de figures créées : {{ nbTricks }}
+			</p>
+			<p>
+				Nombre de commentaires : {{ nbComments }}
+			</p>
+		</div>
 	</div>
 {% endblock %}

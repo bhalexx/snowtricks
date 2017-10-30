@@ -8,13 +8,16 @@
 
 <div class="col-xs-12 title">
 	<h2>
-		Modifier mon profil
+	    Modifier mon profil
 	</h2>
-	<div class="options">				
+    <div class="options">	
+		<a href="{{ path('fos_user_change_password') }}" class="btn btn-primary">
+			<span class="fa fa-unlock-alt"></span> Modifier mon mot de passe
+		</a>			
 		<a href="{{ path('st_user.users.user_delete_account') }}" class="btn btn-danger">
 			<span class="fa fa-trash"></span> Supprimer mon compte
 		</a>
-	</div>
+	</div>	
 </div>
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {% include "STUserBundle:templates:edit_form.html.twig" with { 'user': app.user, 'passwordRequired': true, 'withGroups': false } %}
