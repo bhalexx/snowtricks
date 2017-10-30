@@ -30,7 +30,7 @@
 				<h2>
 					{{ trick.name }} <small>- {{ trick.family.name }}</small>				
 				</h2>
-				<i class="text-muted">Créée par <b>{{ trick.author }}</b>, le {{ trick.dateInsert|date('d/m/Y à H:i') }}</i>
+				<i class="text-muted">Créée par <b>{{ trick.author|default('Utilisateur supprimé') }}</b>, le {{ trick.dateInsert|date('d/m/Y à H:i') }}</i>
 			</div>
 			{% if is_granted('ROLE_MEMBER') %}
 				<div class="options">

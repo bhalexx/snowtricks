@@ -7,8 +7,9 @@
     use Symfony\Component\Form\Extension\Core\Type\TextType;
     use Symfony\Component\Form\Extension\Core\Type\FileType;
     use Symfony\Component\OptionsResolver\OptionsResolver;
+    use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-	class RegistrationType extends AbstractType
+	class UserType extends AbstractType
 	{
 		public function buildForm(FormBuilderInterface $builder, array $options)
 		{
@@ -23,6 +24,16 @@
 					'label' => 'Photo de profil',
 					'required' => false
 				))
+				->add('groups', EntityType::class, array(
+					'label' => 'Assigner au groupe',
+					'class' => 'STUserBundle:Group',
+					'choice_label' => 'label',
+					'multiple' => true,
+					'expanded' => true,
+					'required' => true
+
+				))
+				->remove('plainPassword')
 			;
 		}
 
@@ -33,6 +44,6 @@
 
 	    public function getBlockPrefix()
 	    {
-	        return 'st_user_registration';
+	        return 'st_user_edit';
 	    }
 	}

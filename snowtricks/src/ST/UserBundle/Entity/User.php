@@ -66,7 +66,7 @@ class User extends BaseUser
 
     public function __construct()
     {
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new ArrayCollection();
         parent::__construct();
     }
 
@@ -268,8 +268,9 @@ class User extends BaseUser
      */
     public function removeProfilePictureFile()
     {
-        if ($file = $this->getProfilePictureAbsolutePath() && file_exists($this->getProfilePictureAbsolutePath())) {
-            unlink($file);
+        $profilePicture = $this->getProfilePictureAbsolutePath();
+        if (file_exists($profilePicture)) {
+            unlink($profilePicture);
         }
     }
 

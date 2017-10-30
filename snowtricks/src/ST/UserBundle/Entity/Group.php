@@ -3,6 +3,7 @@
 	namespace ST\UserBundle\Entity;
 
 	use FOS\UserBundle\Model\Group as BaseGroup;
+	use Symfony\Component\Validator\Constraints as Assert;
 	use Doctrine\ORM\Mapping as ORM;
 	use ST\UserBundle\Entity\User;
 
@@ -25,6 +26,14 @@
 	     * @ORM\ManyToMany(targetEntity="ST\UserBundle\Entity\User", mappedBy="groups")
 	     */
 	    protected $users;
+
+	    /**
+	     * @var string
+	     *
+	     * @ORM\Column(type="string", length=255, unique=true)
+	     * @Assert\NotBlank(message="Le nom du groupe d'utilisateur ne peut être vide.")
+	     */
+	    protected $label;
 
 	    public function __construct($roles = array())
 	    {
@@ -76,4 +85,22 @@
 	    {
 	        return $this->users;
 	    }
-}
+
+	    /**
+	     * Set label
+	     * @param String $label
+	     */
+	    public function setLabel($label)
+	    {
+	    	$this->label = $label;
+	    }
+
+	    /**
+	     * Get label
+	     * @return String $label
+	     */
+	    public function getLabel()
+	    {
+	    	return $this->label;
+	    }
+	}

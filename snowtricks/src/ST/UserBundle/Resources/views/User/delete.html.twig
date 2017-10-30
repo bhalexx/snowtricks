@@ -1,0 +1,30 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Supprimer {{ user.username }}
+{% endblock %}
+
+{% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Utilisateurs' : path('st_user.users'),
+        (user.username): '',
+        'Supprimer': path('st_user.users.delete_user', { id: user.id })
+    }} %}
+
+    <h2>Supprimer l'utilisateur {{ user.username }}</h2>
+	<p>
+		Attention, cette action est irréversible et entraîne la suppression de tous ses commentaires.
+	</p>
+
+	<form action="{{ path('st_user.users.delete_user', { 'id': user.id }) }}" method="post">
+        <a href="{{ path('st_user.users') }}" class="btn btn-default">
+            <span class="fa fa-hand-o-left"></span> Annuler
+        </a>
+        <button type="submit" class="btn btn-danger">
+            <span class="fa fa-trash"></span> Supprimer
+        </button>
+        {# Generates CSRF token #}
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

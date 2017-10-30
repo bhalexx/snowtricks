@@ -1,0 +1,15 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} {{ user.username }}
+{% endblock %}
+
+{% block body %}
+	<div class="profile row">
+		{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+	        'Accueil' : path('st_snowtricks.homepage'),
+	        (user.username) : ''
+	    }} %}
+		{% include "STUserBundle:templates:profile_show.html.twig" with { 'user': user } %}
+	</div>
+{% endblock %}

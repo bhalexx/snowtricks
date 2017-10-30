@@ -1,0 +1,23 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Modifier 
+{% endblock %}
+
+{% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Utilisateurs' : path('st_user.users'),
+        (user.username): '',
+        'Modifier': path('st_user.users.edit_user', { id: user.id })
+    }} %}
+
+    {{ form_start(form) }}   
+    	{% include "STUserBundle:templates:edit_form.html.twig" with { 'user': user, 'passwordRequired': false, 'withGroups': true } %}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascript %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('build/files.js') }}"></script>
+{% endblock %}
