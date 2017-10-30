@@ -1,7 +1,9 @@
+# Homepage
 st_snowtricks.homepage:
     path:     /
     defaults: { _controller: STSnowTricksBundle:Family:index }
 
+# Families
 st_snowtricks.family_view:
     path: /groupes/{id}/{slug}
     defaults: { _controller: STSnowTricksBundle:Family:view }
@@ -28,6 +30,7 @@ st_snowtricks.family_list:
     path: /groupes
     defaults: { _controller: STSnowTricksBundle:Family:list }
 
+# Tricks
 st_snowtricks.trick_view:
     path: /figure/{id}/{slug}
     defaults: { _controller: STSnowTricksBundle:Trick:view }
