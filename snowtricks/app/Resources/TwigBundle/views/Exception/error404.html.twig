@@ -1,0 +1,21 @@
+{% extends 'STCoreBundle::layout.html.twig' %}
+                  
+{% block title %}
+{{ parent() }} Erreur 404
+{% endblock %}
+
+{% block body %}
+  	<div class="text-center">
+  		<span class="fa fa-exclamation-triangle fa-5x"></span>
+  		<p class="h1">
+    		Oups !
+    	</p>
+    	<p class="h3">
+    		Il semblerait que vous soyez hors piste ! <span class="fa fa-frown-o"></span>
+    	</p>
+
+    	<a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-primary btn-lg">
+    		Ramenez-moi à l'accueil du site !
+    	</a>
+  	</div>
+{% endblock %}
