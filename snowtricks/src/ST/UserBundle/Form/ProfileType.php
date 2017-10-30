@@ -13,9 +13,14 @@
 		public function buildForm(FormBuilderInterface $builder, array $options)
 		{
 			$builder
-				->add('firstname', TextType::class)
-				->add('lastname', TextType::class)
+				->add('firstname', TextType::class, array(
+					'label' => 'Prénom'
+				))
+				->add('lastname', TextType::class, array(
+					'label' => 'Nom'
+				))
 				->add('file', FileType::class, array(
+					'label' => 'Photo de profil',
 					'required' => false
 				))
 			;

@@ -27,14 +27,15 @@ class Comment
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="ST\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="ST\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $author;
 
     /**
      * @var Trick
      *
-     * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Trick", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="ST\SnowTricksBundle\Entity\Trick", cascade={"persist"},inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $trick;

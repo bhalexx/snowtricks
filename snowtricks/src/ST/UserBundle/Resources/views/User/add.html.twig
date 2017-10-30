@@ -1,0 +1,31 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Ajouter un utilisateur
+{% endblock %}
+
+{% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Utilisateurs' : path('st_user.users'),
+        'Ajouter': ''
+    }} %}
+
+    <div class="row">
+		<!-- NAME & OPTIONS -->
+		<div class="col-xs-12 title">
+			<h2>
+				Ajouter un utilisateur
+			</h2>
+		</div>
+		
+		{{ form_start(form) }}   
+	    	{% include "STUserBundle:templates:edit_form.html.twig" with { 'user': user, 'passwordRequired': false, 'withGroups': true } %}
+	    {{ form_end(form) }}
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('build/files.js') }}"></script>
+{% endblock %}

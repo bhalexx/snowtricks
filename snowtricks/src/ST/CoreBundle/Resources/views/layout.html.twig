@@ -38,7 +38,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						{% if is_granted('ROLE_ADMIN') %}
 							<li>
-								<a href="#">
+								<a href="{{ path('st_user.users') }}">
 									<span class="fa fa-users"></span> Utilisateurs
 								</a>
 							</li>

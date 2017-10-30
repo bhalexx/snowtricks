@@ -1,0 +1,51 @@
+{% extends "STCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} Utilisateurs
+{% endblock %}
+
+{% block body %}
+	{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+        'Accueil' : path('st_snowtricks.homepage'),
+        'Utilisateurs' : path('st_user.users')
+    }} %}
+
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<a href="{{ path('st_user.users.add_user') }}" class="btn btn-primary">
+			 	<span class="fa fa-plus-circle"></span> Ajouter un utilisateur
+			</a>
+		</div>
+		<!-- NAME & OPTIONS -->
+		<div class="col-xs-12 title">
+			<h2>
+				Administrateurs <small>- {{ countAdmin }} utilisateur{% if countAdmin > 1 %}s{% endif %}</small>
+			</h2>
+			<div class="options">				
+				<div class="btn btn-default" data-toggle="collapse" data-target="#list-admin">
+					<span class="caret"></span>
+				</div>
+			</div>
+		</div>
+		<div id="list-admin" class="collapse in">
+			{% include "STUserBundle:User:list.html.twig" with { 'users': admin } %}
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- NAME & OPTIONS -->
+		<div class="col-xs-12 title">
+			<h2>
+				Membres <small>- {{ countMembers }} utilisateur{% if countMembers > 1 %}s{% endif %}</small>
+			</h2>
+			<div class="options">
+				<div class="btn btn-default" data-toggle="collapse" data-target="#list-members">
+					<span class="caret"></span>
+				</div>
+			</div>
+		</div>
+		<div id="list-members" class="collapse">
+			{% include "STUserBundle:User:list.html.twig" with { 'users': members } %}
+		</div>
+	</div>
+{% endblock %}

@@ -10,4 +10,15 @@ namespace ST\UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findByGroup($groupName)
+    {
+    	$qb = $this->createQueryBuilder('u');
+        return 
+	        $qb
+	        	->join('u.groups', 'g')
+	        	->where('g.name = :groupName')
+	        	->setParameter('groupName', $groupName)
+	        	->getQuery()
+	        	->getResult();
+    }
 }

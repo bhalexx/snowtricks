@@ -29,7 +29,7 @@ class Family
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
-     * @Assert\NotBlank(message="Le nom de la famille ne peut être vide.")
+     * @Assert\NotBlank(message="Le nom du groupe ne peut être vide.")
      */
     private $name;
 
@@ -45,7 +45,7 @@ class Family
      * @var string
      *
      * @ORM\Column(name="description", type="text")
-     * @Assert\NotBlank(message="Décrivez la famille en quelques mots.")
+     * @Assert\NotBlank(message="Décrivez le groupe en quelques mots.")
      */
     private $description;
 

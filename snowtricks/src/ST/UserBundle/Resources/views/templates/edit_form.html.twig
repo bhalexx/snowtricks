@@ -1,0 +1,57 @@
+<div class="col-xs-6">
+	{{ form_row(form.firstname) }}
+</div>
+
+<div class="col-xs-6">
+	{{ form_row(form.lastname) }}
+</div>
+
+<div class="col-xs-6">
+    {{ form_row(form.username) }}
+</div>
+
+<div class="col-xs-6">
+    {{ form_row(form.email) }}
+</div>
+
+{% if withGroups %}
+    <div class="col-xs-12">
+        {{ form_row(form.groups) }}
+    </div>
+{% endif %}
+
+<div class="col-xs-12">
+    <div class="file-container">
+    	{{ form_row(form.file) }}
+        <div class="droparea">
+            <div class="message">
+                <div>
+                    <span class="fa fa-picture-o"></span>
+                    <p>Glissez-déposez votre nouvelle photo de profil ici ou cliquez pour la sélectionner</p>
+                </div>
+            </div>
+            <div class="list-pictures">
+                {% if user.webPath is not null %}
+                    <div class="picture" style="background-image: url({{ asset(user.webPath) }})">
+                        <div class="overlay" data-path="{{ path('st_user.remove_profile_picture', { id: user.id }) }}">
+                            <span class="fa fa-trash"></span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if passwordRequired %}
+    <div class="col-xs-12">
+        {{ form_row(form.current_password) }}
+    </div>
+{% endif %}
+
+<div class="col-xs-12 text-center">
+    <button type="submit" class="btn btn-primary">
+		Enregistrer
+	</button>
+</div>
+	

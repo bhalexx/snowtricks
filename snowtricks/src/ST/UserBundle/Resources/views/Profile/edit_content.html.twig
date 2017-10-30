@@ -1,81 +1,21 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
+    'Accueil' : path('st_snowtricks.homepage'),
+    'Mon profil' : path('fos_user_profile_show'),
+    'Modifier': path('fos_user_profile_edit')
+}} %}
+
+<div class="col-xs-12 title">
+	<h2>
+		Modifier mon profil
+	</h2>
+	<div class="options">				
+		<a href="{{ path('st_user.users.user_delete_account') }}" class="btn btn-danger">
+			<span class="fa fa-trash"></span> Supprimer mon compte
+		</a>
+	</div>
+</div>
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-
-    {% include "STCoreBundle:templates:breadcrumbs.html.twig" with { 'links' : {
-        'Accueil' : path('st_snowtricks.homepage'),
-        'Mon profil' : path('fos_user_profile_show'),
-        'Modifier': path('fos_user_profile_edit')
-    }} %}
-
-    <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.firstname, "Prénom") }}
-    		{{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.firstname) }}
-    	</div>
-    </div>
-
-    <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.lastname, "Nom") }}
-    		{{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.lastname) }}
-    	</div>
-    </div>
-
-    <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.username, 'form.username'|trans) }}
-    		{{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.username) }}
-    	</div>
-    </div>
-
-    <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.email, 'form.email'|trans) }}
-    		{{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.email) }}
-    	</div>
-    </div>
-
-    <div class="col-xs-12">
-        <div class="file-container">
-        	{{ form_label(form.file, "Photo de profil") }}
-            {{ form_widget(form.file) }}
-            <div class="droparea">
-                <div class="message">
-                    <div>
-                        <span class="fa fa-picture-o"></span>
-                        <p>Glissez-déposez votre nouvelle photo de profil ici ou cliquez pour la sélectionner</p>
-                    </div>
-                </div>
-                <div class="list-pictures">
-                    {% if app.user.webPath is not null %}
-                        <div class="picture" style="background-image: url({{ asset(app.user.webPath) }})">
-                            <div class="overlay" data-path="{{ path('st_user.remove_profile_picture') }}">
-                                <span class="fa fa-trash"></span>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-            {% if form_errors(form.file) %}
-                <label class="error" for="file">{{ form_errors(form.file) }}</label>
-            {% endif %}
-        </div>
-    </div>
-
-    <div class="col-xs-12">
-        <div class="form-group">
-            {{ form_label(form.current_password, 'form.current_password'|trans) }}
-            {{ form_widget(form.current_password, { 'attr': {'class': 'form-control' } }) }}
-            {{ form_errors(form.current_password) }}
-        </div>
-    </div>
-
-    <div class="col-xs-12 text-center">
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="btn btn-primary" />
-    </div>
+    {% include "STUserBundle:templates:edit_form.html.twig" with { 'user': app.user, 'passwordRequired': true, 'withGroups': false } %}
 {{ form_end(form) }}

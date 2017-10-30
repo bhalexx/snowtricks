@@ -137,6 +137,7 @@
 			foreach ($userGroups['Groups'] as $groupData) {
 				$group = new Group();
 				$group->setName($groupData['name']);
+				$group->setLabel($groupData['label']);
 
 				foreach ($groupData['roles'] as $role) {
 					$group->addRole($role);

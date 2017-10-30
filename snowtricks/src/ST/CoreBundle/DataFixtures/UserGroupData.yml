@@ -2,6 +2,7 @@ Groups:
     Group1:
         name: admin
         roles: ['ROLE_ADMIN']
+        label: 'Administrateurs'
         users:
             User1:
                 firstname: "Snow"
@@ -13,6 +14,7 @@ Groups:
     Group2:
         name: member
         roles: ['ROLE_MEMBER']
+        label: 'Membres'
         users:
             User1:
                 firstname: "Alex"

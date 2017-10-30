@@ -3,57 +3,32 @@
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
     <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.firstname, "Prénom") }}
-    		{{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.firstname) }}
-    	</div>
+    	{{ form_row(form.firstname) }}
     </div>
 
     <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.lastname, "Nom") }}
-    		{{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.lastname) }}
-    	</div>
+    	{{ form_row(form.lastname) }}
     </div>
 
     <div class="col-xs-12">
-    	<div class="form-group">
-    		{{ form_label(form.username, 'form.username'|trans) }}
-    		{{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.username) }}
-    	</div>
+    	{{ form_row(form.username) }}
     </div>
 
     <div class="col-xs-12">
-    	<div class="form-group">
-    		{{ form_label(form.email, 'form.email'|trans) }}
-    		{{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
-    		{{ form_errors(form.email) }}
-    	</div>
+    	{{ form_row(form.email) }}
     </div>
 
     <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.plainPassword.first, 'form.password'|trans) }}
-    		{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control' } }) }}
-	        {{ form_errors(form.plainPassword.first) }}
-    	</div>
+        {{ form_row(form.plainPassword.first) }}
     </div>
 
     <div class="col-xs-6">
-    	<div class="form-group">
-    		{{ form_label(form.plainPassword.second, 'form.password_confirmation'|trans) }}
-    		{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' } }) }}
-	        {{ form_errors(form.plainPassword.second) }}
-    	</div>
+    	{{ form_row(form.plainPassword.second) }}
     </div>
 
     <div class="col-xs-12">
         <div class="file-container">
-        	{{ form_label(form.file, "Photo de profil") }}
-            {{ form_widget(form.file) }}
+        	{{ form_row(form.file) }}
             <div class="droparea">
                 <div class="message">
                     <div>
@@ -63,9 +38,6 @@
                 </div>
                 <div class="list-pictures"></div>
             </div>
-            {% if form_errors(form.file) %}
-                <label class="error" for="file">{{ form_errors(form.file) }}</label>
-            {% endif %}
         </div>
     </div>
 
