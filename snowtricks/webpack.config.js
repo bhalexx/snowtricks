@@ -23,6 +23,7 @@ Encore
     .addEntry('trick_form', './app/Resources/assets/js/trick.form.js')
     .addEntry('files', './app/Resources/assets/js/drag.files.management.js')
     .addEntry('trick', './app/Resources/assets/js/trick.js')
+    .addEntry('users', './app/Resources/assets/js/users.js')
 
     // will output as web/build/global.css
     .addStyleEntry('global', './app/Resources/assets/css/global.scss')

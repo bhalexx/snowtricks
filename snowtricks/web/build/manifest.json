@@ -19,5 +19,6 @@
   "build/images/youtube-play.png": "/symfony/snowtricks/snowtricks/web/build/images/youtube-play.e6f0c233.png",
   "build/trick.js": "/symfony/snowtricks/snowtricks/web/build/trick.js",
   "build/trick_form.js": "/symfony/snowtricks/snowtricks/web/build/trick_form.js",
-  "build/trick_style.css": "/symfony/snowtricks/snowtricks/web/build/trick_style.css"
+  "build/trick_style.css": "/symfony/snowtricks/snowtricks/web/build/trick_style.css",
+  "build/users.js": "/symfony/snowtricks/snowtricks/web/build/users.js"
 }
