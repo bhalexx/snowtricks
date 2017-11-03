@@ -9,7 +9,6 @@ Encore
     .setOutputPath('web/build/')
 
     // what's the public path to this directory (relative to your project's document root dir)
-    // .setPublicPath('/build')
     .setPublicPath(path)
 
     // this is now needed so that you manifest.json keys are still 'build/foo.js' // i.e. you want need to change anything in your Symfony app
@@ -38,7 +37,8 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
 
     // create hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
+    // .enableVersioning(Encore.isProduction())
+    .enableVersioning()
 ;
 
 // export the final configuration

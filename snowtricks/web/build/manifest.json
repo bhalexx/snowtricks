@@ -1,6 +1,6 @@
 {
-  "build/app.js": "/symfony/snowtricks/snowtricks/web/build/app.js",
-  "build/files.js": "/symfony/snowtricks/snowtricks/web/build/files.js",
+  "build/app.js": "/symfony/snowtricks/snowtricks/web/build/app.3a15e4dd3d86d5950818.js",
+  "build/files.js": "/symfony/snowtricks/snowtricks/web/build/files.2a00b2264c5b5af917b8.js",
   "build/fonts/glyphicons-halflings-regular.eot": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.f4769f9b.eot",
   "build/fonts/glyphicons-halflings-regular.ttf": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.e18bbf61.ttf",
   "build/fonts/glyphicons-halflings-regular.woff": "/symfony/snowtricks/snowtricks/web/build/fonts/glyphicons-halflings-regular.fa277232.woff",
@@ -8,7 +8,7 @@
   "build/fonts/lg.eot": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.ecff1170.eot",
   "build/fonts/lg.ttf": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.4fe6f9ca.ttf",
   "build/fonts/lg.woff": "/symfony/snowtricks/snowtricks/web/build/fonts/lg.5fd4c338.woff",
-  "build/global.css": "/symfony/snowtricks/snowtricks/web/build/global.css",
+  "build/global.css": "/symfony/snowtricks/snowtricks/web/build/global.6e687f83bca9770e9b7c7b70be39d5a5.css",
   "build/images/background.jpg": "/symfony/snowtricks/snowtricks/web/build/images/background.f8503003.jpg",
   "build/images/glyphicons-halflings-regular.svg": "/symfony/snowtricks/snowtricks/web/build/images/glyphicons-halflings-regular.89889688.svg",
   "build/images/lg.svg": "/symfony/snowtricks/snowtricks/web/build/images/lg.0cb1b8af.svg",
@@ -17,8 +17,8 @@
   "build/images/video-play.png": "/symfony/snowtricks/snowtricks/web/build/images/video-play.dc34cc9c.png",
   "build/images/vimeo-play.png": "/symfony/snowtricks/snowtricks/web/build/images/vimeo-play.dfe7764b.png",
   "build/images/youtube-play.png": "/symfony/snowtricks/snowtricks/web/build/images/youtube-play.e6f0c233.png",
-  "build/trick.js": "/symfony/snowtricks/snowtricks/web/build/trick.js",
-  "build/trick_form.js": "/symfony/snowtricks/snowtricks/web/build/trick_form.js",
-  "build/trick_style.css": "/symfony/snowtricks/snowtricks/web/build/trick_style.css",
-  "build/users.js": "/symfony/snowtricks/snowtricks/web/build/users.js"
+  "build/trick.js": "/symfony/snowtricks/snowtricks/web/build/trick.baeb10a3a042b7833242.js",
+  "build/trick_form.js": "/symfony/snowtricks/snowtricks/web/build/trick_form.b33f827508bac77f84ad.js",
+  "build/trick_style.css": "/symfony/snowtricks/snowtricks/web/build/trick_style.793f59cfee776958582e8b8b6b3b1fe5.css",
+  "build/users.js": "/symfony/snowtricks/snowtricks/web/build/users.322eb6417ee21ee80539.js"
 }
