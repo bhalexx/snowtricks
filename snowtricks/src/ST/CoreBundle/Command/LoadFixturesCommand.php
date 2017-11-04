@@ -39,13 +39,13 @@
 			$application = $this->getApplication();
         	$application->setAutoExit(false);
 
-        	// Drop database
-			$output->writeln([
-	            '===================================================',
-	            'Dropping DataBase',
-	            '===================================================',
-	            '',
-	        ]);
+   //      	// Drop database
+			// $output->writeln([
+	  //           '===================================================',
+	  //           'Dropping DataBase',
+	  //           '===================================================',
+	  //           '',
+	  //       ]);
 
 			$options = array('command' => 'doctrine:database:drop',"--force" => true);
         	$application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
