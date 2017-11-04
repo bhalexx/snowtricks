@@ -21,6 +21,7 @@
         "egeloen/ckeditor-bundle": "^4.0",
         "friendsofsymfony/user-bundle": "dev-master",
         "incenteev/composer-parameter-handler": "^2.0",
+        "phpunit/phpunit": "^4.8",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "stof/doctrine-extensions-bundle": "^1.2",
