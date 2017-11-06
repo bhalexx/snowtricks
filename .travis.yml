@@ -3,5 +3,6 @@ php:
   - '5.5.9'
 
 script:
+   - cd snowtricks
    - composer install
    - vendor/bin/phpunit
