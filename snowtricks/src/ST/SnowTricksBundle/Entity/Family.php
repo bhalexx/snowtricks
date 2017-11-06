@@ -5,6 +5,7 @@ namespace ST\SnowTricksBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ST\SnowTricksBundle\Entity\Trick;
 
@@ -13,6 +14,8 @@ use ST\SnowTricksBundle\Entity\Trick;
  *
  * @ORM\Table(name="st_family")
  * @ORM\Entity(repositoryClass="ST\SnowTricksBundle\Repository\FamilyRepository")
+ *
+ * @UniqueEntity(fields={"name"}, message="Une famille du même nom existe déjà.")
  */
 class Family
 {

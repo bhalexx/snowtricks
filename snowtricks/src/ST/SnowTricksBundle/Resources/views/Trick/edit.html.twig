@@ -20,7 +20,7 @@
             </h2>
         </div>
     </div>
-	{{ include("STSnowTricksBundle:Trick:form.html.twig") }}
+	{% include "STSnowTricksBundle:Trick:form.html.twig" with { 'edit': true } %}
 {% endblock %}
 
 {% block javascript %}

@@ -28,14 +28,16 @@
                 <label class="error" for="pictures">{{ form_errors(form.pictures) }}</label>
             {% endif %}
             <div class="pictures">
-                {% for picture in trick.pictures %}
-                    <div class="picture" style="background-image: url({{ asset(picture.webPath) }})">
-                        <div class="remove-picture hidden" data-path="{{ path('st_snowtricks.trick_remove_picture', { trick_id: trick.id, picture_id: picture.id }) }}"></div>
-                        <div class="overlay">
-                            <span class="fa fa-trash"></span>
+                {% if edit %}
+                    {% for picture in trick.pictures %}
+                        <div class="picture" style="background-image: url({{ asset(picture.webPath) }})">
+                            <div class="remove-picture hidden" data-path="{{ path('st_snowtricks.trick_remove_picture', { trick_id: trick.id, picture_id: picture.id }) }}"></div>
+                            <div class="overlay">
+                                <span class="fa fa-trash"></span>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
