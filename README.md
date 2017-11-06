@@ -2,7 +2,7 @@
 
 ## Introduction
 This project is a community website about snow tricks build with Symfony & Doctrine.
-It's the 6th OpenClassRooms PHP/Symfony Developer project.
+It's the 6th OpenClassRooms PHP/Symfony Developer project. You can see a demo [here](http://snowtricks.alexandra-dubreucq.com).
 
 To run this project and load all its dependencies on your local machine, you need to have [Composer](https://getcomposer.org/) and [npm (Node.js package manager)](https://nodejs.org/en/).
 Assets are managed by [WebPack Encore](https://github.com/symfony/webpack-encore), a simpler way to integrate Webpack into your application, developed by Symfony. Read documentation [here](https://symfony.com/doc/current/frontend.html)
