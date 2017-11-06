@@ -283,4 +283,8 @@ class User extends BaseUser
         $this->setProfilePicturePath(null);
     }
 
+    public function getFullName()
+    {
+        return $this->firstname. ' '.$this->lastname;
+    }
 }
