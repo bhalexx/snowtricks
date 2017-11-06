@@ -9,7 +9,7 @@
 	<div class="right">
 		<div class="head">
 			<a href="{{ path('st_user.users.view_profile', { id: comment.author.id }) }}">
-				<b>{{ comment.author }}</b>
+				<b>{{ comment.author.fullName }}</b>
 			</a>
 			<span class="text-muted">
 				({{ comment.dateInsert|date('d/m/Y, H:i') }})
