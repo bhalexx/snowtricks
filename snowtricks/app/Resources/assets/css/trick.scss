@@ -1,0 +1,12 @@
+@import '~lightgallery/dist/css/lightgallery.min';
+
+.display-flex { display: -moz-flex; display: -webkit-flex; display: flex; }
+.flex-align { @extend .display-flex; align-items: center; justify-content: center;}
+
+#lightgallery {
+	@extend .flex-align; flex-wrap: wrap;
+	a {
+		margin-right: 5px;
+		img { max-height: 150px; }
+	}
+}

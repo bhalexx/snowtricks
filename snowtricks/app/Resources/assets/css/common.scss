@@ -1,0 +1,95 @@
+/* MIXINS */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	transform: $value;
+}
+
+@mixin transition($value...) {
+	-webkit-transition: $value; 
+	-moz-transition: $value; 
+	transition: $value;
+}
+
+@mixin calc($property, $default, $expression) {
+	#{$property}: $default;
+  	#{$property}: -moz-calc(#{$expression});
+  	#{$property}: -webkit-calc(#{$expression});
+  	#{$property}: calc(#{$expression});
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str...) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin vendor($property, $expression) {
+	-webkit-#{$property}: $expression;
+  	-moz-#{$property}: $expression;
+  	-ms-#{$property}: $expression;
+  	o-#{$property}: $expression;
+  	#{$property}: $expression
+}
+
+$tablet-width: 768px;
+$medium-width: 992px;
+$desktop-width: 1200px;
+$large-desktop-width: 1500px;
+
+@mixin mobile {
+	@media (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+  	@media (min-width: #{$tablet-width}) and (max-width: #{$medium-width - 1px}) {
+    	@content;
+  	}
+}
+
+@mixin medium {
+  	@media (min-width: #{$medium-width}) and (max-width: #{$desktop-width - 1px}) {
+    	@content;
+  	}
+}
+
+@mixin desktop {
+  	@media (min-width: #{$desktop-width}) and (max-width: #{$large-desktop-width - 1px}) {
+    	@content;
+  	}
+}
+
+@mixin large {
+	@media (min-width: #{$large-desktop-width}) {
+    	@content;
+  	}
+}

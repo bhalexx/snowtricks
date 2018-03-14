@@ -1,7 +1,7 @@
 {% extends 'STCoreBundle::layout.html.twig' %}
                   
 {% block title %}
-{{ parent() }} Erreur 404
+{{ parent() }} Erreur
 {% endblock %}
 
 {% block body %}
@@ -12,12 +12,12 @@
     	</p>
     	<p class="h3">
     		Il semble qu'il n'y ait pas assez de neige par ici... <span class="fa fa-frown-o"></span><br/> 
-    		Ou peut-être n'avez-vous pas encore le niveau pour cette piste ?<br/>
-    		Revenez plus tard, nous avons démarré les canons à neige.
+        Ou peut-être n'avez-vous pas encore le niveau pour cette piste ?<br/>
+        Revenez plus tard, nous avons démarré les canons à neige.
     	</p>
-
-    	<a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-primary btn-lg">
-    		Ramenez-moi à l'accueil du site !
-    	</a>
+    	
+      <a href="{{ path('st_snowtricks.homepage') }}" class="btn btn-primary btn-lg">
+        Ramenez-moi à l'accueil du site !
+      </a>
   	</div>
 {% endblock %}
