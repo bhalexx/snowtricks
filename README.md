@@ -33,7 +33,7 @@ Those dependencies are included in package.json
 2. In project folder open a new terminal window and execute command line `composer install`.
 3. Execute command line `php bin/console assets:install web` to install Ivory CKEditor assets.
 4. Then execute command line `npm install` to install node modules for assets management.
-5. Rename `snowtricks/app/config/parameters.yml.dist` in `snowtricks/app/config/parameters.dist` and edit database parameters with yours.
+5. Rename `snowtricks/app/config/parameters.yml.dist` in `snowtricks/app/config/parameters.yml` and edit database parameters with yours.
 
 ##### Your project is ready to be run!
 ##### I can hear you saying: "Wait... I don't want to create families and tricks one by one...". Don't worry!
